@@ -1,5 +1,6 @@
 # ignore all but the htdocs directory
 !htdocs/
+!rmapro-app
 
 #ignore these folders in htdocs
 img/
