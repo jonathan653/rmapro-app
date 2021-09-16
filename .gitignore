@@ -1,0 +1,20 @@
+# ignore all but the htdocs directory
+!htdocs/
+
+#ignore these folders in htdocs
+img/
+dashboard/
+webalizer/
+bin/
+tmp/
+
+#ignore following files in htdocs
+*.ico
+*.tmp
+
+bitnami.css
+
+applications.html
+
+index.php
+
