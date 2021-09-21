@@ -34,7 +34,7 @@ CREATE TABLE `users` (
 
 -- Indexes for table `User`
 --
-ALTER TABLE `User`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
   
   
