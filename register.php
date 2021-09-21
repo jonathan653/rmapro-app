@@ -1,21 +1,19 @@
-<?php
-include('server.php')
-?>
+<?php include('server.php'); ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Register for my login system</title>
+	<title>Register for Anderson & Co app</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div class="header">
-		<h2>Register</h2>
+		<h2>Title Recall</h2>
 	</div>
 
-	<form method="post" action="register.php">
+	<form class="app-form" method="post" action="register.php">
 		<?php include('errors.php'); ?>
 		<div class="input-group">
 			<input type="text" name="username" placeholder="Your username" value="<?php echo $username; ?>">
@@ -33,7 +31,6 @@ include('server.php')
 			<button type="submit" class="btn" name="reg_user">Register</button>
 		</div>
 		<p class="account">Already have an account?<br><a href="login.php">Sign in here</a></p>
-		<p class="account"><a href="#">Home</a></p>
 	</form>
 </body>
 
