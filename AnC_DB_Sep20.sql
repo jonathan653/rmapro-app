@@ -22,8 +22,31 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+-- Table structure for table `User`
 --
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Indexes for table `User`
+--
+ALTER TABLE `User`
+  ADD PRIMARY KEY (`id`);
+  
+  
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+--
+--
+
+-- --------------------------------------------------------
 -- Table structure for table `Client`
 --
 
@@ -36,8 +59,59 @@ CREATE TABLE `Client` (
   `contactEmail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Indexes for table `Client`
+--
+ALTER TABLE `Client`
+  ADD PRIMARY KEY (`clientId`);
 -- --------------------------------------------------------
+--
+-- Table structure for table `JobDetails`
+--
 
+CREATE TABLE `JobDetails` (
+  `jobNumber` varchar(4) NOT NULL,
+  `jobStatus` enum('open','closed') NOT NULL,
+  `consultantName` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Indexes for table `JobDetails`
+--
+ALTER TABLE `JobDetails`
+  ADD PRIMARY KEY (`jobNumber`);
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `Property`
+--
+
+CREATE TABLE `Property` (
+  `address` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Indexes for table `Property`
+--
+ALTER TABLE `Property`
+  ADD PRIMARY KEY (`address`);
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `Consent`
+--
+
+CREATE TABLE `Consent` (
+  `consentReference` varchar(12) NOT NULL,
+  `issueDate` date NOT NULL,
+  `lapseDate` date NOT NULL,
+  `consentDoc` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Indexes for table `Consent`
+--
+ALTER TABLE `Consent`
+  ADD PRIMARY KEY (`consentReference`),
+  ADD KEY `consentReference` (`consentReference`);
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `Conditions`
 --
@@ -51,105 +125,20 @@ CREATE TABLE `Conditions` (
   `condiStatus` enum('open','closed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Consent`
---
-
-CREATE TABLE `Consent` (
-  `consentReference` varchar(12) NOT NULL,
-  `issueDate` date NOT NULL,
-  `lapseDate` date NOT NULL,
-  `consentDoc` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `JobDetails`
---
-
-CREATE TABLE `JobDetails` (
-  `jobNumber` varchar(4) NOT NULL,
-  `jobStatus` enum('open','closed') NOT NULL,
-  `consultantName` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Property`
---
-
-CREATE TABLE `Property` (
-  `address` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `User`
---
-
-CREATE TABLE `User` (
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Client`
---
-ALTER TABLE `Client`
-  ADD PRIMARY KEY (`clientId`);
-
---
 -- Indexes for table `Conditions`
 --
 ALTER TABLE `Conditions`
   ADD PRIMARY KEY (`conditionNumber`,`consentReference`),
   ADD KEY `consentReference` (`consentReference`);
-
---
--- Indexes for table `Consent`
---
-ALTER TABLE `Consent`
-  ADD PRIMARY KEY (`consentReference`),
-  ADD KEY `consentReference` (`consentReference`);
-
---
--- Indexes for table `JobDetails`
---
-ALTER TABLE `JobDetails`
-  ADD PRIMARY KEY (`jobNumber`);
-
---
--- Indexes for table `Property`
---
-ALTER TABLE `Property`
-  ADD PRIMARY KEY (`address`);
-
---
--- Indexes for table `User`
---
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`username`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Conditions`
+  
+  -- Constraints for table `Conditions`
 --
 ALTER TABLE `Conditions`
   ADD CONSTRAINT `conditionForeignKey` FOREIGN KEY (`consentReference`) REFERENCES `Consent` (`consentReference`);
 COMMIT;
+
+-- --------------------------------------------------------
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
