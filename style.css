@@ -6,7 +6,12 @@
     font-size: 120%;
     background: #F8F8FF;
   }
-  
+
+  .home-page-header {
+    margin: 100px auto 0px;
+    text-align: center;
+  }
+
   .header {
     width: 30%;
     margin: 100px auto 0px;
@@ -18,7 +23,20 @@
     border-radius: 10px 10px 0px 0px;
     padding: 20px;
   }
-  form, .content {
+
+  .nav-bar {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .welcome-section {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    padding-top: 5px;
+  }
+
+  .app-form {
     width: 30%;
     margin: 0px auto;
     padding: 20px;
@@ -43,11 +61,27 @@
     border-radius: 5px;
     border: 1px solid gray;
   }
+
+  .input-section {
+    margin-left: 40px;
+  }
+
+  .input-section label {
+    font-family: Verdana;
+  }
+
+  .input-section input {
+    width: 80%;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
   .btn {
     padding: 10px;
     font-size: 25px;
     color: white;
-    background:green;
+    background: gray;
     border: none;
     border-radius: 5px;
   }
@@ -74,3 +108,46 @@
     border: 1px solid #3c763d;
     margin-bottom: 20px;
   }
+
+  .form-group {
+    border-style: none;
+    font-size: 16px;
+  }
+
+  .record-input-group {
+    padding: 10px 10px 10px 0px;
+  }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.add_more_button {
+  margin: 10px 10px 10px 0;
+  background: #a94442;
+  color: white;
+}
+
+.report-form-group {
+  text-align: left;
+  margin-left: 30%;
+  padding-bottom: 10px;
+}
+
+.report-form-group input {
+  margin-bottom: 20px;
+  font-family: Verdana;
+}
+
+.report-form-group button {
+  font-size: 20px;
+  padding: 5px;
+}
