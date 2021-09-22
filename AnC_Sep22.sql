@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2021 at 01:02 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Sep 21, 2021 at 09:45 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,11 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `AnC_DB_Sep20`
+-- Database: `login-system`
 --
 
 -- --------------------------------------------------------
--- Table structure for table `User`
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -32,25 +34,41 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `User`
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
+(1, 'jonathan', 'jonathan.chua@postgrad.otago.ac.nz', '12345'),
+(2, 'test', 'test@test.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+(3, 'test2', 'test2@test.com', '827ccb0eea8a706c4c34a16891f84e7b');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
-  
-  
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
---
---
 
 -- --------------------------------------------------------
--- Table structure for table `Client`
+-- Table structure for table `clients`
 --
 
-CREATE TABLE `Client` (
+CREATE TABLE `clients` (
   `clientId` varchar(7) NOT NULL,
   `company` varchar(30) NOT NULL,
   `contactFirstName` varchar(100) NOT NULL,
@@ -59,64 +77,64 @@ CREATE TABLE `Client` (
   `contactEmail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `Client`
+-- Indexes for table `clients`
 --
-ALTER TABLE `Client`
+ALTER TABLE `clients`
   ADD PRIMARY KEY (`clientId`);
 -- --------------------------------------------------------
 --
--- Table structure for table `JobDetails`
+-- Table structure for table `job_details`
 --
 
-CREATE TABLE `JobDetails` (
+CREATE TABLE `job_details` (
   `jobNumber` varchar(4) NOT NULL,
   `jobStatus` enum('open','closed') NOT NULL,
   `consultantName` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `JobDetails`
+-- Indexes for table `job_details`
 --
-ALTER TABLE `JobDetails`
+ALTER TABLE `job_details`
   ADD PRIMARY KEY (`jobNumber`);
 
 -- --------------------------------------------------------
 --
--- Table structure for table `Property`
+-- Table structure for table `property`
 --
 
-CREATE TABLE `Property` (
+CREATE TABLE `property` (
   `address` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `Property`
+-- Indexes for table `property`
 --
-ALTER TABLE `Property`
+ALTER TABLE `property`
   ADD PRIMARY KEY (`address`);
 
 -- --------------------------------------------------------
 --
--- Table structure for table `Consent`
+-- Table structure for table `consent`
 --
 
-CREATE TABLE `Consent` (
+CREATE TABLE `consent` (
   `consentReference` varchar(12) NOT NULL,
   `issueDate` date NOT NULL,
   `lapseDate` date NOT NULL,
   `consentDoc` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `Consent`
+-- Indexes for table `consent`
 --
-ALTER TABLE `Consent`
+ALTER TABLE `consent`
   ADD PRIMARY KEY (`consentReference`),
   ADD KEY `consentReference` (`consentReference`);
 
 -- --------------------------------------------------------
 --
--- Table structure for table `Conditions`
+-- Table structure for table `conditions`
 --
 
-CREATE TABLE `Conditions` (
+CREATE TABLE `conditions` (
   `conditionNumber` varchar(4) NOT NULL,
   `consentReference` varchar(12) NOT NULL,
   `details` varchar(2000) NOT NULL,
@@ -125,16 +143,16 @@ CREATE TABLE `Conditions` (
   `condiStatus` enum('open','closed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Indexes for table `Conditions`
+-- Indexes for table `conditions`
 --
-ALTER TABLE `Conditions`
+ALTER TABLE `conditions`
   ADD PRIMARY KEY (`conditionNumber`,`consentReference`),
   ADD KEY `consentReference` (`consentReference`);
   
-  -- Constraints for table `Conditions`
+  -- Constraints for table `conditions`
 --
-ALTER TABLE `Conditions`
-  ADD CONSTRAINT `conditionForeignKey` FOREIGN KEY (`consentReference`) REFERENCES `Consent` (`consentReference`);
+ALTER TABLE `conditions`
+  ADD CONSTRAINT `conditionForeignKey` FOREIGN KEY (`consentReference`) REFERENCES `consent` (`consentReference`);
 COMMIT;
 
 -- --------------------------------------------------------
