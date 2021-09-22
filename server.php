@@ -7,10 +7,13 @@ $errors = array();
 
 // connect to the database
 $db = mysqli_connect("localhost", "root", "", "AnC_Sep22");
+<<<<<<< HEAD
 
 if($db === false){
   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+=======
+>>>>>>> 6bc78d4d69e58c93073057146838abf96bd6c325
 
 // register user
 if (isset($_POST['reg_user'])) {
@@ -83,6 +86,11 @@ if (isset($_POST['login_user'])) {
         }
     }
   }
+<<<<<<< HEAD
   //close connection
   mysqli_close($db);
 ?>
+=======
+  
+  ?>
+>>>>>>> 6bc78d4d69e58c93073057146838abf96bd6c325
