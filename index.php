@@ -4,8 +4,8 @@
 <p id="date-time"></p>
 
 <script>
-    var results = new Date();
-    $('#date-time').html(results);
+    var results = new Date().toDateString();
+    $('#date-time').html("Current date is: " + results);
 </script>
 
 <div class="wrapper">
