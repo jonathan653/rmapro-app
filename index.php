@@ -1,9 +1,9 @@
 <?php include('header.php'); ?>
 
-    <h1>Create new record</h1>
+    <h1>Create New Record</h1>
 	<div class="wrapper">
     <div class="input-section">
-        <h3>Consent details</h3>
+        <h3>Consent Details</h3>
 
         <form action="index.php" method="POST" class="form-group">
             <div class="record-input-group">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="input-section">
-        <h3>Client details</h3>
+        <h3>Client Details</h3>
 
         <form action="" method="POST" class="form-group">
             <div class="record-input-group">
@@ -71,7 +71,7 @@
     </div>
 
     <div class="input-section">
-        <h3>Job details</h3>
+        <h3>Job Details</h3>
 
         <form action="" method="POST" class="form-group">
             <div class="record-input-group">
@@ -98,9 +98,9 @@
                 <input type="email" name="job-email" id="job-email" required>
             </div>
             <div class="record-input-group-job">
-                <label for="job-condition">Job condition*</label>
+                <label for="job-condition">Consent Condition*</label>
                 <input type="text" name="job-condition" id="job-condition" placeholder="Condition number" required>
-                <input type="text" name="job-details" id="job-details" placeholder="Job details" required>
+                <input type="text" name="job-details" id="job-details" placeholder="Job Details" required>
                 <label for="condition-date">Condition date*</label><br>
                 <select>
                     <option value=”two-weeks”>2 weeks</option>
@@ -121,7 +121,7 @@
                     $('.add_more_button').click(function(e){
                         e.preventDefault();
                             $('.record-input-group-job').append('<div class="new-condition>' +
-                            '<label for="job-condition">Job condition*</label>'   +
+                            '<label for="job-condition">Consent Condition*</label>'   +
                             '<input type="text" name="job-condition" id="job-condition" placeholder="Condition number" required>' +
                                 '<input type="text" name="job-details" id="job-details" placeholder="Job details" required>' +
                             '<label for="condition-date">Condition date*</label><br>' +
