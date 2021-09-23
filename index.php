@@ -7,20 +7,20 @@
 
         <form action="index.php" method="POST" class="form-group">
             <div class="record-input-group">
-                <label for="consent-number">Consent number*</label>
+                <label for="consent-number">Consent Number*</label>
                 <input type="text" name="consent-number" id="consent-number" required>
             </div>
             <div class="record-input-group">
-                <label for="consent-document">Attach consent issue document</label>
+                <label for="consent-document">Attach Consent Issue Document</label>
                 <input type="file" id="consent-document" name="consent-document">
             </div>
             <div class="record-input-group">
-                <label for="consent-issue-date">Issue date*</label>
+                <label for="consent-issue-date">Issue Date*</label>
                 <input type="date" id="consent-issue-date" name="consent-issue-date" required>
             </div>
 
             <div class="record-input-group">
-                <label for="consent-lapse-date">Lapse date*</label>
+                <label for="consent-lapse-date">Lapse Date*</label>
                 <input type="date" id="consent-lapse-date" name="consent-lapse-date" required>
             </div>
 
@@ -44,23 +44,23 @@
                 <input type="text" name="client-id" id="client-id" required>
             </div>
             <div class="record-input-group">
-                <label for="company-name">Company name*</label>
+                <label for="company-name">Company Name*</label>
                 <input type="text" name="company-name" id="company-name" required>
             </div>
             <div class="record-input-group">
-                <label for="client-first-name">Client first name*</label>
+                <label for="client-first-name">Client First Name*</label>
                 <input type="text" name="client-first-name" id="client-first-name" required>
             </div>
             <div class="record-input-group">
-                <label for="client-surname">Client surname*</label>
+                <label for="client-surname">Client Surname*</label>
                 <input type="text" name="client-surname" id="client-surname" required>
             </div>
             <div class="record-input-group">
-                <label for="client-phone">Client phone*</label>
+                <label for="client-phone">Client Phone*</label>
                 <input type="tel" name="client-phone" id="client-phone" required>
             </div>
             <div class="record-input-group">
-                <label for="client-email">Client email*</label>
+                <label for="client-email">Client Email*</label>
                 <input type="email" name="client-email" id="client-email" required>
             </div>
 
@@ -75,11 +75,11 @@
 
         <form action="" method="POST" class="form-group">
             <div class="record-input-group">
-                <label for="job-number">Job number*</label>
+                <label for="job-number">Job Number*</label>
                 <input type="text" name="job-number" id="job-number" required>
             </div>
             <div class="record-input-group">
-                <label for="job-status">Job status*</label>
+                <label for="job-status">Job Status*</label>
                 <select>
                     <option value=”active”>Active</option>
                     <option value=”inactive”>Inactive</option>
@@ -94,11 +94,11 @@
             </div>
 
             <div class="record-input-group">
-                <label for="job-email">Job email*</label>
+                <label for="job-email">Job Email*</label>
                 <input type="email" name="job-email" id="job-email" required>
             </div>
 
-            <button class="add_more_button">Add new condition</button>
+            <button class="add_more_button">Add New Condition</button>
 
             <div class="add-new-condition"></div>
 
