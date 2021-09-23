@@ -1,13 +1,6 @@
 <?php include('header.php'); ?>
 
-<h1>Create New Record</h1>
-<p id="date-time"></p>
-
-<script>
-    var results = new Date();
-    $('#date-time').html(results);
-</script>
-
+<h1>View Records</h1>
 <div class="wrapper">
     <div class="input-section">
         <h3>Consent Details</h3>
@@ -100,49 +93,10 @@
                 </select>
             </div>
 
-            <button class="add_more_button">Add new condition</button>
-
-            <div class="add-new-condition"></div>
-
-            <script>
-                $(document).ready(function() {
-                    $('.add_more_button').click(function(e){
-                        e.preventDefault();
-                        $('.add-new-condition').append('<fieldset class="new-input-part">' +
-                            '<legend>Job condition</legend>' +
-                            '<a href="#" class="remove-field">Remove</a><br>' +
-                            '<input type="text" name="job-condition" id="job-condition" placeholder="Condition number" required>' +
-                            '<input type="text" name="job-details" id="job-details" placeholder="Condition summary/details" required>' +
-                            '<label for="condition-date">Condition date*</label><br>' +
-                            '<select><option value=”two-weeks”>2 weeks</option>' +
-                            '<option value=”four-weeks”>4 weeks</option></select><br>' +
-                            '<label for="condition-reminder-date">Reminder date*</label>' +
-                            '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required>' +
-                            '<label for="condition-status">Condition status*</label>' +
-                            '<select><option value=”active”>Active</option>' +
-                            '<option value=”inactive”>Inactive</option>/select>' +
-                            '</fieldset>');
-
-                        $('.new-input-part').on("click",".remove-field", function(e){
-                            e.preventDefault();
-                            $(this).parent('fieldset').remove();
-                        });
-
-                    });
-
-                });
-            </script>
-
-
-
             <div class="record-input-group">
-                <input type="submit" value="Save job">
+                <label for="job-email">Job email*</label>
+                <input type="email" name="job-email" id="job-email" required>
             </div>
-
         </form>
     </div>
-
 </div>
-
-</body>
-</html>
