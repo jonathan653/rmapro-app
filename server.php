@@ -7,10 +7,8 @@ $errors = array();
 
 // connect to the database
 $db = mysqli_connect("localhost", "root", "", "AnC_Sep22");
-
-if($db === false){
-  die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+<<<<<<< HEAD
+=======
 
 // register user
 if (isset($_POST['reg_user'])) {
@@ -85,4 +83,4 @@ if (isset($_POST['login_user'])) {
   }
   //close connection
   mysqli_close($db);
-?>
+  ?>
