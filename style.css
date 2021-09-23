@@ -118,6 +118,10 @@ body {
   padding: 10px 10px 10px 0px;
 }
 
+.record-input-group input {
+  width: 100%;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
