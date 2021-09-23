@@ -39,7 +39,7 @@ echo $clientId."<br>".$company."<br>".$clientEmail."<br>".$clientPhone."<br>";
 echo $jobNumber."<br>".$jobStatus."<br>";
 echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate."<br>".$conditionStatus."<br>";
 echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
-echo $username."<br>".$consultantName."<br>"$email."<br>".$password."<br>";
+echo $username."<br>".$consultantName."<br>".$email."<br>".$password."<br>";
 echo $address."<br>";
 
 /* attempt MySQL server connection. Assuming you are running 
