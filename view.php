@@ -5,7 +5,7 @@
     <div class="input-section">
         <h3>Consent Details</h3>
 
-        <form action="index.php" method="POST" class="form-group">
+        <form action="view.php" method="POST" class="form-group">
             <div class="record-input-group">
                 <label for="consentNumber">Consent Number*</label>
                 <input type="text" name="consentNumber" id="consentNumber" required>
