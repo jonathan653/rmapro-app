@@ -1,122 +1,122 @@
 * {
-    margin: 0px;
-    padding: 0px;
-  }
-  body {
-    font-size: 120%;
-    background: #F8F8FF;
-  }
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 120%;
+  background: #F8F8FF;
+}
 
-  .home-page-header {
-    margin: 100px auto 0px;
-    text-align: center;
-  }
+.home-page-header {
+  margin: 100px auto 0px;
+  text-align: center;
+}
 
-  .header {
-    width: 30%;
-    margin: 100px auto 0px;
-    color: white;
-    background: grey;
-    text-align: center;
-    border: 1px solid grey;
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    padding: 20px;
-  }
+.header {
+  width: 30%;
+  margin: 100px auto 0px;
+  color: white;
+  background: grey;
+  text-align: center;
+  border: 1px solid grey;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
 
-  .nav-bar {
-    padding: 20px;
-    text-align: center;
-  }
+.nav-bar {
+  padding: 20px;
+  text-align: center;
+}
 
-  .welcome-section {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-    padding-top: 5px;
-  }
+.welcome-section {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  padding-top: 5px;
+}
 
-  .app-form {
-    width: 30%;
-    margin: 0px auto;
-    padding: 20px;
-    border: 1px solid grey;
-    background: white;
-    border-radius: 0px 0px 10px 10px;
-    text-align: center;
-  }
-  .input-group {
-    margin: 20px 0px 10px 0px;
-  }
-  .input-group label {
-    display: block;
-    text-align: left;
-    margin: 3px;
-  }
-  .input-group input {
-    height: 30px;
-    width: 93%;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid gray;
-  }
+.app-form {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid grey;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+}
+.input-group {
+  margin: 20px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
 
-  .input-section {
-    margin-left: 40px;
-  }
+.input-section {
+  margin-left: 40px;
+}
 
-  .input-section label {
-    font-family: Verdana;
-  }
+.input-section label {
+  font-family: Verdana;
+}
 
-  .input-section input {
-    width: 80%;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid gray;
-  }
+.input-section input {
+  width: 80%;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
 
-  .btn {
-    padding: 10px;
-    font-size: 25px;
-    color: white;
-    background: gray;
-    border: none;
-    border-radius: 5px;
-  }
-  .btn:hover {
-    background:darkslategrey;
-    cursor: pointer;
-  }
-  .account {
-    font-size: 14px;
-  }
-  .error {
-    width: 92%; 
-    margin: 0px auto; 
-    padding: 10px; 
-    border: 1px solid #a94442; 
-    color: #a94442; 
-    background: #f2dede; 
-    border-radius: 5px; 
-    text-align: center;
-  }
-  .success {
-    color: #3c763d; 
-    background: #dff0d8; 
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
-  }
+.btn {
+  padding: 10px;
+  font-size: 25px;
+  color: white;
+  background: gray;
+  border: none;
+  border-radius: 5px;
+}
+.btn:hover {
+  background:darkslategrey;
+  cursor: pointer;
+}
+.account {
+  font-size: 14px;
+}
+.error {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: center;
+}
+.success {
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
 
-  .form-group {
-    border-style: none;
-    font-size: 16px;
-  }
+.form-group {
+  border-style: none;
+  font-size: 16px;
+}
 
-  .record-input-group {
-    padding: 10px 10px 10px 0px;
-  }
+.record-input-group {
+  padding: 10px 10px 10px 0px;
+}
 
 .wrapper {
   display: grid;
@@ -150,4 +150,30 @@ h1 {
 .report-form-group button {
   font-size: 20px;
   padding: 5px;
+}
+
+.search-bar {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+#search-tab {
+  margin-right: 10px;
+  padding-left: 10px;
+  width: 20%;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: gray;
+  font-size: 16px;
+  outline: none;
+}
+
+#submit-search {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.new-condition {
+  border-color: #3c763d;
 }
