@@ -14,30 +14,30 @@
 
         <form action="index.php" method="POST" class="form-group">
             <div class="record-input-group">
-                <label for="consent-number">Consent Number*</label>
-                <input type="text" name="consent-number" id="consent-number" required>
+                <label for="consentNumber">Consent Number*</label>
+                <input type="text" name="consentNumber" id="consentNumber" required>
             </div>
             <div class="record-input-group">
-                <label for="consent-document">Attach Consent Issue Document</label>
-                <input type="file" id="consent-document" name="consent-document">
+                <label for="consentDoc">Attach Consent Issue Document</label>
+                <input type="file" id="consentDoc" name="consentDoc">
             </div>
             <div class="record-input-group">
-                <label for="consent-issue-date">Issue Date*</label>
-                <input type="date" id="consent-issue-date" name="consent-issue-date" required>
-            </div>
-
-            <div class="record-input-group">
-                <label for="consent-lapse-date">Lapse Date*</label>
-                <input type="date" id="consent-lapse-date" name="consent-lapse-date" required>
+                <label for="issueDate">Issue Date*</label>
+                <input type="date" id="issueDate" name="issueDate" required>
             </div>
 
             <div class="record-input-group">
-                <label for="keyword">Keywords*</label>
-                <input type="text" name="keyword" id="keyword" required>
+                <label for="lapseDate">Lapse Date*</label>
+                <input type="date" id="lapseDate" name="lapseDate" required>
             </div>
 
             <div class="record-input-group">
-                <input type="submit" value="Save consent">
+                <label for="keywords">Keywords*</label>
+                <input type="text" name="keywords" id="keywords" required>
+            </div>
+
+            <div class="record-input-group">
+                <input type="submit" value="Save Consent">
             </div>
         </form>
     </div>
@@ -47,53 +47,45 @@
 
         <form action="" method="POST" class="form-group">
             <div class="record-input-group">
-                <label for="client-id">Client ID*</label>
-                <input type="text" name="client-id" id="client-id" required>
+                <label for="clientId">Client ID*</label>
+                <input type="text" name="clientId" id="clientId" required>
             </div>
             <div class="record-input-group">
-                <label for="company-name">Company Name*</label>
-                <input type="text" name="company-name" id="company-name" required>
+                <label for="company">Company/ Client Name*</label>
+                <input type="text" name="company" id="company" required>
             </div>
             <div class="record-input-group">
-                <label for="client-first-name">Client First Name*</label>
-                <input type="text" name="client-first-name" id="client-first-name" required>
+                <label for="clientPhone">Client Phone*</label>
+                <input type="tel" name="clientPhone" id="clientPhone" required>
             </div>
             <div class="record-input-group">
-                <label for="client-surname">Client Surname*</label>
-                <input type="text" name="client-surname" id="client-surname" required>
-            </div>
-            <div class="record-input-group">
-                <label for="client-phone">Client Phone*</label>
-                <input type="tel" name="client-phone" id="client-phone" required>
-            </div>
-            <div class="record-input-group">
-                <label for="client-email">Client Email*</label>
-                <input type="email" name="client-email" id="client-email" required>
+                <label for="clientEmail">Client Email*</label>
+                <input type="email" name="clientEmail" id="clientEmail" required>
             </div>
 
             <div class="record-input-group">
-                <input type="submit" value="Save client">
+                <input type="submit" value="Save Client">
             </div>
         </form>
     </div>
 
     <div class="input-section">
-        <h3>Job Details</h3>
+        <h3>Condition Summary / Details</h3>
 
         <form action="" method="POST" class="form-group">
             <div class="record-input-group">
-                <label for="job-number">Job Number*</label>
-                <input type="text" name="job-number" id="job-number" required>
+                <label for="conditionNumber">Job Number*</label>
+                <input type="text" name="conditionNumber" id="conditionNumber" required>
             </div>
             <div class="record-input-group">
-                <label for="job-status">Job Status*</label>
+                <label for="conditionStatus">Condition Status*</label>
                 <select>
                     <option value=”active”>Active</option>
                     <option value=”inactive”>Inactive</option>
                 </select>
             </div>
             <div class="record-input-group">
-                <label for="consultant-name">Consultant*</label>
+                <label for="consultant">Consultant*</label>
                 <select>
                     <option value=”conrad-anderson”>Conrad Anderson</option>
                     <option value=”don-anderson”>Don Anderson</option>
