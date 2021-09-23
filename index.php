@@ -97,43 +97,29 @@
                 <label for="job-email">Job email*</label>
                 <input type="email" name="job-email" id="job-email" required>
             </div>
-            <div class="record-input-group-job">
-                <label for="job-condition">Consent Condition*</label>
-                <input type="text" name="job-condition" id="job-condition" placeholder="Condition number" required>
-                <input type="text" name="job-details" id="job-details" placeholder="Job Details" required>
-                <label for="condition-date">Condition date*</label><br>
-                <select>
-                    <option value=”two-weeks”>2 weeks</option>
-                    <option value=”four-weeks”>4 weeks</option>
-                </select><br>
-                <label for="condition-reminder-date">Reminder date*</label>
-                <input type="date" id="condition-reminder-date" name="condition-reminder-date" required>
-                <label for="condition-status">Condition status*</label>
-                <select>
-                    <option value=”active”>Active</option>
-                    <option value=”inactive”>Inactive</option>
-                </select><br>
-                <button class="add_more_button">Add new condition</button>
-            </div>
+
+            <button class="add_more_button">Add new condition</button>
+
+            <div class="add-new-condition"></div>
 
             <script>
                 $(document).ready(function() {
                     $('.add_more_button').click(function(e){
                         e.preventDefault();
-                            $('.record-input-group-job').append('<div class="new-condition>' +
-                            '<label for="job-condition">Consent Condition*</label>'   +
+                        $('.add-new-condition').append('<fieldset>' +
+                            '<legend>Job condition</legend>' +
                             '<input type="text" name="job-condition" id="job-condition" placeholder="Condition number" required>' +
-                                '<input type="text" name="job-details" id="job-details" placeholder="Job details" required>' +
+                            '<input type="text" name="job-details" id="job-details" placeholder="Condition summary/details" required>' +
                             '<label for="condition-date">Condition date*</label><br>' +
                             '<select><option value=”two-weeks”>2 weeks</option>' +
                             '<option value=”four-weeks”>4 weeks</option></select><br>' +
                             '<label for="condition-reminder-date">Reminder date*</label>' +
                             '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required>' +
-                                '<label for="condition-status">Condition status*</label>' +
-                                '<select><option value=”active”>Active</option>' +
-                                '<option value=”inactive”>Inactive</option>/select><br>' +
-                                '</div>'
-                            );
+                            '<label for="condition-status">Condition status*</label>' +
+                            '<select><option value=”active”>Active</option>' +
+                            '<option value=”inactive”>Inactive</option>/select><br>' +
+                            '<div><br></div>' + '</fieldset>'
+                        );
                     });
                 });
             </script>
