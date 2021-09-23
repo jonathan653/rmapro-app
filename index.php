@@ -1,4 +1,5 @@
 <?php include('header.php'); ?>
+<?php include('link_createNewRecord.php'); ?>
 
 <h1>Create New Record</h1>
 <p id="date-time"></p>
