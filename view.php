@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-
+<h1>Edit / View Record</h1>
 <!-- <h1>View / Edit Record</h1> -->
 <div class="wrapper">
     <div class="input-section">

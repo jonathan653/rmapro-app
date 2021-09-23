@@ -4,7 +4,7 @@
 <script src="script.js"></script>
 <link href="style.css">
 
-<h1>Search records</h1>
+<h1>Search Records</h1>
 <form class="search-bar" action="search.php" method="GET">
     <input id="search" type="text" name="search" autocomplete="off" placeholder="Enter keywords..."/>
     <!--<input id="submit-search" type="submit" value="Search" />-->

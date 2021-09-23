@@ -8,8 +8,8 @@ if (isset($_POST['search'])) {
    ';
     while ($Result = MySQLi_fetch_array($ExecQuery)) {
         ?>
-        <li onclick='fill("<?php echo $Result['Name']; ?>")'>
-            <a>
+        <li onclick='fill("<?php echo $Result['username']; ?>")'>
+            <a href="view.php">
                 <?php echo $Result['username']; ?>
         </li></a>
         <?php
