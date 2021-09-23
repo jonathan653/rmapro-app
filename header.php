@@ -35,11 +35,11 @@ if (isset($_GET['logout'])) {
 
 <?php  if (isset($_SESSION['username'])) : ?>
     <p class="welcome-section">Welcome&nbsp; <strong><?php echo $_SESSION['username']; ?></strong></p>
-    <p class="welcome-section"> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    <p class="welcome-section"> <a href="index.php?logout='1'" style="color: red;">Logout</a> </p>
 <?php endif ?>
 
 <nav class="nav-bar">
-    <a href="index.php">Create new record</a> |
-    <a href="search.php">Search records</a> |
-    <a href="report.php">Report view</a>
+    <a href="index.php">Create New Record</a> |
+    <a href="search.php">Search Records</a> |
+    <a href="report.php">Report View</a>
 </nav>
