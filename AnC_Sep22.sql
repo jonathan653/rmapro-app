@@ -59,8 +59,8 @@ CREATE TABLE `consent` (
   `consentNumber` varchar(12) NOT NULL,
   `issueDate` date NOT NULL,
   `lapseDate` date NOT NULL,
-  `keywords` varchar(200) NOT NULL,
-  `consentDoc` blob NOT NULL,
+  `keywords` varchar(200),
+  `consentDoc` blob,
   `address` varchar(300) NOT NULL,
   `clientId` varchar(7) NOT NULL,
   `jobNumber` varchar(4) NOT NULL
@@ -75,7 +75,7 @@ CREATE TABLE `consent` (
 CREATE TABLE `job_details` (
   `jobNumber` varchar(4) NOT NULL,
   `jobStatus` enum('open','closed') NOT NULL,
-  `username` varchar(100) NOT NULL
+  `consultantName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -155,7 +155,7 @@ ALTER TABLE `property`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `username` (`username`);
+  ADD KEY `consultantName` (`consultantName`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -189,7 +189,7 @@ ALTER TABLE `consent`
 -- Constraints for table `job_details`
 --
 ALTER TABLE `job_details`
-  ADD CONSTRAINT `FKusername` FOREIGN KEY (`username`) REFERENCES `users` (`username`);
+  ADD CONSTRAINT `FKconsultantName` FOREIGN KEY (`consultantName`) REFERENCES `users` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
