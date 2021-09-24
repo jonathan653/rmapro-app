@@ -46,7 +46,7 @@
     <div class="input-section">
         <h3>Client Details</h3>
 
-        <form action="link_createNewRecord.php" method="POST" class="form-group">
+        <form action="" method="POST" class="form-group">
             <div class="record-input-group">
                 <label for="clientId">Client ID*</label>
                 <input type="text" name="clientId" id="clientId" required>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="record-input-group">
-                <input type="submit" name="reg_client" value="Save Client">
+                <input type="submit" value="Save Client">
             </div>
         </form>
     </div>
