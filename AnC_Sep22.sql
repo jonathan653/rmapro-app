@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
@@ -59,6 +59,7 @@ CREATE TABLE `consent` (
   `consentNumber` varchar(12) NOT NULL,
   `issueDate` date NOT NULL,
   `lapseDate` date NOT NULL,
+  `keywords` varchar(200) NOT NULL,
   `consentDoc` blob NOT NULL,
   `address` varchar(300) NOT NULL,
   `clientId` varchar(7) NOT NULL,
@@ -96,6 +97,7 @@ CREATE TABLE `property` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
+  `consultantName` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

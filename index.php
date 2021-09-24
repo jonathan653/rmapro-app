@@ -105,9 +105,9 @@
                             '<legend>Consent Condition</legend>' +
                             '<a href="#" class="remove-field">Remove</a><br>' +
                             '<label for="job-condition">Condition Number*</label><br>' +
-                            '<input type="text" name="job-condition" id="job-condition" placeholder="Enter Condition Number Here" required>' +
+                            '<input type="text" name="job-condition" id="job-condition" placeholder="Enter Condition Number Here" required><br>' +
                             '<label for="job-condition">Condition Summary / Details</label><br>' +
-                            '<input type="text" name="job-details" id="job-details" placeholder="Enter Condition Details Here" required>' +
+                            '<input type="text" name="job-details" id="job-details" placeholder="Enter Condition Details Here" required><br>' +
                             '<label for="condition-date">Condition date*</label><br>' +
                             '<select><option value=”two-weeks”>2 Weeks</option>' +
                             '<option value=”four-weeks”>4 Weeks</option><br>' +
@@ -115,8 +115,8 @@
                             '<option value=”six-months”>6 Months</option><br>' +
                             '<option value=”six-months”>Custom</option></select><br>' +                           
                             '<label for="condition-reminder-date">Reminder date*</label>' +
-                            '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required>' +
-                            '<label for="condition-status">Condition status*</label>' +
+                            '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required><br>' +
+                            '<label for="condition-status">Condition status*</label><br>' +
                             '<select><option value=”active”>Active</option>' +
                             '<option value=”inactive”>Inactive</option>/select>' +
                             '</fieldset>');
