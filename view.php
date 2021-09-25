@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <h1>Edit / View Record</h1>
-<!-- <h1>View / Edit Record</h1> -->
+
 <div class="wrapper">
     <div class="input-section">
         <h3>Consent Details</h3>
@@ -66,6 +66,13 @@
         <h3>Job Details</h3>
 
         <form action="" method="POST" class="form-group">
+
+            <div class="record-input-group">
+                <label for="address">Property Address*</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+
+
             <div class="record-input-group">
                 <label for="conditionNumber">Job Number*</label>
                 <input type="text" name="conditionNumber" id="conditionNumber" required>
