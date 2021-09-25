@@ -6,13 +6,17 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect("localhost", "root", "", "AnC_Sep22");
+$db = mysqli_connect("localhost", "root", "", "AnC_Sep25");
 
+if($db === false){
+  die("ERROR: Could not connect. " . mysqli_connect_error());
+}
 
 // register user
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
+  $consultantName = mysqli_real_escape_string($db, $_POST['consultantName']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
@@ -20,6 +24,7 @@ if (isset($_POST['reg_user'])) {
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
+  if (empty($consultantName)) { array_push($errors, "Your name is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
@@ -46,8 +51,8 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO users (username, consultantName, email, password) 
+  			  VALUES('$username', '$consultantName', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
@@ -82,4 +87,4 @@ if (isset($_POST['login_user'])) {
   }
   //close connection
   mysqli_close($db);
-  ?>
+?>
