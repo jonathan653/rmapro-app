@@ -89,6 +89,13 @@ body {
   background:darkslategrey;
   cursor: pointer;
 }
+.btn-submit {
+  font-size: 25px;
+  border: none;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
 .account {
   font-size: 14px;
 }
