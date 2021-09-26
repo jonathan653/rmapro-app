@@ -29,9 +29,6 @@
                 <input type="text" name="keywords" id="keywords" required>
             </div>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Consent">
-            </div>
         </form>
     </div>
 
@@ -56,9 +53,6 @@
                 <input type="email" name="clientEmail" id="clientEmail" required>
             </div>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Client">
-            </div>
         </form>
     </div>
 
@@ -130,13 +124,13 @@
                 });
             </script>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Job">
-            </div>
-
         </form>
     </div>
 
+</div>
+
+<div class="btn-submit">
+    <input type="submit" value="Update Record">
 </div>
 
 </body>
