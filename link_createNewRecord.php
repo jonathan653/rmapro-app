@@ -40,14 +40,6 @@ echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate
 echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
 echo $address."<br>";
 
-<<<<<<< HEAD
-/* attempt MySQL server connection. Assuming you are running 
-MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep25');
-=======
->>>>>>> e4f5e52f670bce849b995d7311a2303c6896f2be
-
-
 $sql = "insert into clients(clientId,company,clientEmail,clientPhone) values('$clientId','$company','$clientEmail','$clientPhone')";
 $sql = "insert into job_details(jobNumber,jobStatus) values('$jobNumber','$jobStatus')";
 $sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$conditionStatus')";
