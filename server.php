@@ -6,7 +6,7 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect("localhost", "root", "", "AnC_Sep222");
+$db = mysqli_connect("localhost", "root", "", "AnC_Sep22");
 
 if($db === false){
   die("ERROR: Could not connect. " . mysqli_connect_error());
