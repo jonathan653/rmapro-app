@@ -170,5 +170,4 @@ ALTER TABLE `consent`
 -- Constraints for table `job_details`
 --
 ALTER TABLE `job_details`
-  ADD CONSTRAINT `FKconsultantName` FOREIGN KEY (`consultantName`) REFERENCES `users` (`username`);
-COMMIT;
+  ADD CONSTRAINT `FKconsultantName` FOREIGN KEY (`consultantName`) REFERENCES `users` (`consultantName`);
