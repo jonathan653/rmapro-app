@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <h1>Edit / View Record</h1>
-<!-- <h1>View / Edit Record</h1> -->
+
 <div class="wrapper">
     <div class="input-section">
         <h3>Consent Details</h3>
@@ -29,9 +29,6 @@
                 <input type="text" name="keywords" id="keywords" required>
             </div>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Consent">
-            </div>
         </form>
     </div>
 
@@ -56,9 +53,6 @@
                 <input type="email" name="clientEmail" id="clientEmail" required>
             </div>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Client">
-            </div>
         </form>
     </div>
 
@@ -66,6 +60,13 @@
         <h3>Job Details</h3>
 
         <form action="" method="POST" class="form-group">
+
+            <div class="record-input-group">
+                <label for="address">Property Address*</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+
+
             <div class="record-input-group">
                 <label for="conditionNumber">Job Number*</label>
                 <input type="text" name="conditionNumber" id="conditionNumber" required>
@@ -123,13 +124,13 @@
                 });
             </script>
 
-            <div class="record-input-group">
-                <input type="submit" value="Update Job">
-            </div>
-
         </form>
     </div>
 
+</div>
+
+<div class="btn-submit">
+    <input type="submit" value="Update Record">
 </div>
 
 </body>

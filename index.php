@@ -37,9 +37,6 @@
                 <input type="text" name="keywords" id="keywords" required>
             </div>
 
-            <div class="record-input-group">
-                <input type="submit" value="Save Consent">
-            </div>
         </form>
     </div>
 
@@ -64,9 +61,11 @@
                 <input type="email" name="clientEmail" id="clientEmail" required>
             </div>
 
+
             <div class="record-input-group">
                 <input type="submit" name="reg_client" value="Save Client">
             </div>
+
         </form>
     </div>
 
@@ -74,6 +73,11 @@
         <h3>Condition Summary / Details</h3>
 
         <form action="" method="POST" class="form-group">
+            <div class="record-input-group">
+                <label for="address">Property Address*</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+
             <div class="record-input-group">
                 <label for="conditionNumber">Job Number*</label>
                 <input type="text" name="conditionNumber" id="conditionNumber" required>
@@ -99,7 +103,7 @@
 
             <script>
                 $(document).ready(function() {
-                    $('.add_more_button').click(function(e){
+                    $('.add_more_button').click(function(e) {
                         e.preventDefault();
                         $('.add-new-condition').append('<fieldset class="new-input-part">' +
                             '<legend>Consent Condition</legend>' +
@@ -113,7 +117,7 @@
                             '<option value=”four-weeks”>4 Weeks</option><br>' +
                             '<option value=”one-month”>1 Months</option><br>' +
                             '<option value=”six-months”>6 Months</option><br>' +
-                            '<option value=”six-months”>Custom</option></select><br>' +                           
+                            '<option value=”six-months”>Custom</option></select><br>' +
                             '<label for="condition-reminder-date">Reminder date*</label>' +
                             '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required><br>' +
                             '<label for="condition-status">Condition status*</label><br>' +
@@ -121,7 +125,7 @@
                             '<option value=”inactive”>Inactive</option>/select>' +
                             '</fieldset>');
 
-                        $('.new-input-part').on("click",".remove-field", function(e){
+                        $('.new-input-part').on("click", ".remove-field", function(e) {
                             e.preventDefault();
                             $(this).parent('fieldset').remove();
                         });
@@ -131,16 +135,15 @@
                 });
             </script>
 
-
-
-            <div class="record-input-group">
-                <input type="submit" value="Save Job">
-            </div>
-
         </form>
     </div>
 
 </div>
 
+<div class="btn-submit">
+    <input type="submit" value="Save Record">
+</div>
+
 </body>
+
 </html>
