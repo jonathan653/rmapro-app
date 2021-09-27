@@ -44,7 +44,7 @@ echo $address."<br>";
 
 /* attempt MySQL server connection. Assuming you are running 
 MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep22');
+$link = new mysqli('localhost','root','','AnC_Sep25');
 
 //check connection
 if($link->connect_error){

@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Sep 25, 2021 at 10:35 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `AnC_Sep25`
@@ -59,8 +41,8 @@ CREATE TABLE `consent` (
   `consentNumber` varchar(12) NOT NULL,
   `issueDate` date NOT NULL,
   `lapseDate` date NOT NULL,
-  `keywords` varchar(200) NOT NULL,
-  `consentDoc` blob NOT NULL,
+  `keywords` varchar(200),
+  `consentDoc` blob,
   `address` varchar(300) NOT NULL,
   `clientId` varchar(7) NOT NULL,
   `jobNumber` varchar(4) NOT NULL
@@ -107,10 +89,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `consultantName`, `email`, `password`) VALUES
-(1, 'jonathan', '', 'jonathan.chua@postgrad.otago.ac.nz', '12345'),
+(1, 'jonathan', 'J chua', 'jonathan.chua@postgrad.otago.ac.nz', '12345'),
 (2, 'test', '', 'test@test.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 (3, 'test2', '', 'test2@test.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
+INSERT INTO `clients` (`clientId`, `company`, `clientPhone`, `clientEmail`) VALUES
+(`Hch1`, `Hermione Granger`, `0211111111`, `crookshanks@example.com`);
+
+INSERT INTO `job_details` (`jobNumber`, `jobStatus`, `consultantName`) VALUES
+(`1234`, `open`, `J Chua`);
+
+INSERT INTO `property` (`address`) VALUES
+(`15 witches terrace`);
+
+INSERT INTO `consent` (`consentNumber`, `issueDate`, `lapseDate`, `keywords`, `consentDoc`, `address`, `clientId`, `jobNumber`) VALUES
+(`CN1234`, `12-03-2020`, `12-03-2025`, `potions, transfiguration, magic, witch`, ``, `15 witches terrace`, `Hch1`, `1234`);
 --
 -- Indexes for dumped tables
 --
@@ -190,8 +183,3 @@ ALTER TABLE `consent`
 --
 ALTER TABLE `job_details`
   ADD CONSTRAINT `FK_consultantName` FOREIGN KEY (`consultantName`) REFERENCES `users` (`consultantName`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
