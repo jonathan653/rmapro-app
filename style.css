@@ -89,13 +89,13 @@ body {
   background:darkslategrey;
   cursor: pointer;
 }
-.btn-submit {
-  font-size: 25px;
-  border: none;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+
+.centre-btn {
+  font-size: 20px;
+  padding: 5px;
+  margin-left: 45%;
 }
+
 .account {
   font-size: 14px;
 }
@@ -183,11 +183,6 @@ h1 {
 #display {
   display: flex;
   justify-content: center;
-}
-
-#submit-search {
-  font-size: 16px;
-  padding: 10px;
 }
 
 .new-condition {
