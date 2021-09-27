@@ -1,6 +1,6 @@
 <?php
 echo "line 1";
-    require_once 'dompdf/autoload.inc.php';  
+    require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';  
 
     // reference the Dompdf namespace
     use Dompdf\Dompdf; 
@@ -19,7 +19,7 @@ echo "line 1";
 
     //$html = file_get_contents("reportGen.html"); 
 
-    $dompdf->loadHtml($html); 
+   // $dompdf->loadHtml($html); 
 
      
     // (Optional) Setup the paper size and orientation
