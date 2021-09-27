@@ -1,7 +1,12 @@
 <?php
 
+/* attempt MySQL server connection. Assuming you are running 
+MySQL server with default setting (user 'root' with no password)*/
+$link = new mysqli('localhost','root','','AnC_Sep22');
+
 // variables
 //to store in client table
+
 $clientId = $_POST['clientId'];
 $company = $_POST['company'];
 $clientEmail = $_POST['clientEmail'];
@@ -25,12 +30,6 @@ $lapseDate = $_POST['lapseDate'];
 $consentDoc = $_POST['consentDoc'];
 $keywords = $_POST['keywords'];
 
-// to store in users table
-$username = $_POST['username'];
-$consultantName = $_POST['consultantName'];
-$email = $_POST['email'];
-$password  = $_POST['password'];
-
 // to store in property table
 $address  = $_POST['address'];
 
@@ -39,13 +38,22 @@ echo $clientId."<br>".$company."<br>".$clientEmail."<br>".$clientPhone."<br>";
 echo $jobNumber."<br>".$jobStatus."<br>";
 echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate."<br>".$conditionStatus."<br>";
 echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
-echo $username."<br>".$consultantName."<br>".$email."<br>".$password."<br>";
 echo $address."<br>";
 
-/* attempt MySQL server connection. Assuming you are running 
-MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep22');
 
+
+$sql = "insert into clients(clientId,company,clientEmail,clientPhone) values('$clientId','$company','$clientEmail','$clientPhone')";
+$sql = "insert into job_details(jobNumber,jobStatus) values('$jobNumber','$jobStatus')";
+$sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$conditionStatus')";
+$sql = "insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords) values('$consentNumber','$issueDate','$lapseDate','$consentDoc','$keywords')";
+$sql = "insert into property(address) values('$address')";
+
+
+
+
+$link->query($sql);
+
+/*
 //check connection
 if($link->connect_error){
     die('Connection Failed : '.$link->connect_error);
@@ -63,14 +71,6 @@ if($link->connect_error){
     $stmt->bind_param("s",$address);
     $stmt->execute();
     echo "property details inserted successfully"."<br>";
-
-    // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into users(userName,consultantName,email,password)
-        values(?,?,?,?)"); 
-    $stmt->bind_param("s,s,s,s,s",$username,$consultantName,$email,$password);
-    $stmt->execute();
-    echo "user details inserted successfully"."<br>";
-
 
     // insert variables into database using prepared statements
     $stmt = $link->prepare("insert into job_details(jobNumber, jobStatus)
@@ -95,7 +95,7 @@ if($link->connect_error){
     $stmt->close();
 
 }
-
+*/
 $link->close();
 
-?>
+

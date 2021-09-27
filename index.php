@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-</ / ?php include('link_createNewRecord.php'); ?>
+
 
 <h1>Create New Record</h1>
 <p id="date-time"></p>
@@ -13,7 +13,7 @@
     <div class="input-section">
         <h3>Consent Details</h3>
 
-        <form action="index.php" method="POST" class="form-group">
+        <form action="link_createNewRecord.php" method="POST" class="form-group">
             <div class="record-input-group">
                 <label for="consentNumber">Consent Number*</label>
                 <input type="text" name="consentNumber" id="consentNumber" required>
@@ -43,7 +43,7 @@
     <div class="input-section">
         <h3>Client Details</h3>
 
-        <form action="" method="POST" class="form-group">
+        <form action="link_createNewRecord.php" method="POST" class="form-group">
             <div class="record-input-group">
                 <label for="clientId">Client ID*</label>
                 <input type="text" name="clientId" id="clientId" required>
@@ -59,6 +59,11 @@
             <div class="record-input-group">
                 <label for="clientEmail">Client Email*</label>
                 <input type="email" name="clientEmail" id="clientEmail" required>
+            </div>
+
+
+            <div class="record-input-group">
+                <input type="submit" name="reg_client" value="Save Client">
             </div>
 
         </form>
