@@ -7,7 +7,7 @@ echo "line 1";
 
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
-    $dompdf->loadHtml('hello world');
+   // $dompdf->loadHtml('hello world');
 
     // Load HTML content 
 
@@ -17,9 +17,9 @@ echo "line 1";
 
     // Load html file 
 
-    //$html = file_get_contents("reportGen.html"); 
+    $html = file_get_contents("reportGenHtml.php"); 
 
-   // $dompdf->loadHtml($html); 
+    $dompdf->loadHtml($html); 
 
      
     // (Optional) Setup the paper size and orientation
@@ -29,5 +29,4 @@ echo "line 1";
     $dompdf->render(); 
     // Output the generated PDF to Browser $dompdf->stream();
     $dompdf->stream("Attachment");
-echo "line 32";
 ?>
