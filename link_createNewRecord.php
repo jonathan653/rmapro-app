@@ -1,8 +1,13 @@
 <?php
 
+ini_set('display_errors', 1); // print error statement
+ini_set('display_startup_errors', 1); // print error statement
+error_reporting(E_ALL); // print error statement
+
 /* attempt MySQL server connection. Assuming you are running 
 MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep22');
+$link = new mysqli('localhost','root','','anc_sep22');
+
 
 // variables
 //to store in client table
@@ -12,16 +17,13 @@ $company = $_POST['company'];
 $clientEmail = $_POST['clientEmail'];
 $clientPhone = $_POST['clientPhone'];
 
+// to store in property table
+$address  = $_POST['address'];
+
 // to store in job table
 $jobNumber = $_POST['jobNumber'];
 $jobStatus = $_POST['jobStatus'];
-
-// to store in condition table
-$conditionNumber = $_POST['conditionNumber'];
-$details  = $_POST['details'];
-$conditionDate = $_POST['conditionDate'];
-$reminderDate = $_POST['redminerDate'];
-$conditionStatus = $_POST['conditionStatus'];
+$consultantName = $_POST['consultantName'];
 
 // to store in consent table
 $consentNumber = $_POST['consentNumber'];
@@ -30,8 +32,14 @@ $lapseDate = $_POST['lapseDate'];
 $consentDoc = $_POST['consentDoc'];
 $keywords = $_POST['keywords'];
 
-// to store in property table
-$address  = $_POST['address'];
+// to store in condition table
+$conditionNumber = $_POST['conditionNumber'];
+$details  = $_POST['details'];
+$conditionDate = $_POST['conditionDate'];
+$reminderDate = $_POST['reminderDate'];
+$conditionStatus = $_POST['conditionStatus'];
+
+/*
 
 //echo out/test values being submitted
 echo $clientId."<br>".$company."<br>".$clientEmail."<br>".$clientPhone."<br>";
@@ -40,68 +48,70 @@ echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate
 echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
 echo $address."<br>";
 
-<<<<<<< HEAD
-/* attempt MySQL server connection. Assuming you are running 
-MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep25');
-=======
->>>>>>> e4f5e52f670bce849b995d7311a2303c6896f2be
-
-
 $sql = "insert into clients(clientId,company,clientEmail,clientPhone) values('$clientId','$company','$clientEmail','$clientPhone')";
 $sql = "insert into job_details(jobNumber,jobStatus) values('$jobNumber','$jobStatus')";
-$sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$conditionStatus')";
+$sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$reminderDate','$conditionStatus')";
 $sql = "insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords) values('$consentNumber','$issueDate','$lapseDate','$consentDoc','$keywords')";
 $sql = "insert into property(address) values('$address')";
 
 
 
+ //$link->query($sql);
 
-$link->query($sql);
+*/
 
-/*
 //check connection
 if($link->connect_error){
     die('Connection Failed : '.$link->connect_error);
 }else{
-    // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into client(clientId,company,clientEmail,clientPhone)
-        values(?,?,?,?)"); 
-    $stmt->bind_param("s,s,s,i",$clientId,$company,$clientEmail,$clientPhone);
-    $stmt->execute();
-    echo "client details inserted successfully"."<br>";
-
         // insert variables into datbase using prepared statements
-        $stmt = $link->prepare("insert into property(address)
-        values(?)"); 
+    $stmt = $link->prepare("insert into clients(clientId,company,clientEmail,clientPhone)
+        values(?,?,?,?)"); 
+    $stmt->bind_param("sssi",$clientId,$company,$clientEmail,$clientPhone);
+    $stmt->execute();
+    echo $clientId, $company, $clientEmail, $clientPhone;
+    echo "client details inserted successfully"."<br>";
+    $stmt->close();
+        
+   // insert variables into datbase using prepared statements
+    $stmt = $link->prepare("insert into property(address)
+    values(?)"); 
     $stmt->bind_param("s",$address);
     $stmt->execute();
+    echo $address;
     echo "property details inserted successfully"."<br>";
+    $stmt->close();
 
     // insert variables into database using prepared statements
-    $stmt = $link->prepare("insert into job_details(jobNumber, jobStatus)
-        values(?,?)");
-    $stmt->bind-param("s,s", $jobNumber, $jobStatus);
+    $stmt = $link->prepare("insert into job_details(jobNumber, jobStatus,consultantName)
+        values(?,?,?)");
+    $stmt->bind_param("sss", $jobNumber, $jobStatus,$consultantName);
     $stmt->execute();
+    echo $jobNumber, $jobStatus, $consultantName;
     echo "job details inserted successfully"."<br>";
+    $stmt->close();
     
     // insert variables into datbase using prepared statements
     $stmt = $link->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords)
         values(?,?,?,?,?)"); 
-    $stmt->bind_param("s,s,s,s,s",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords);
+    $stmt->bind_param("sssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords);
     $stmt->execute();
+    echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords;
     echo "consent details inserted successfully"."<br>";
+    $stmt->close();
 
     // insert variables into datbase using prepared statements
     $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus)
         values(?,?,?,?,?)"); 
-    $stmt->bind_param("s,s,s,s,s",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus);
+    $stmt->bind_param("sssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus);
     $stmt->execute();
+    echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus;
     echo "condition details inserted successfully"."<br>";
     $stmt->close();
 
 }
-*/
+
 $link->close();
+?>
 
 

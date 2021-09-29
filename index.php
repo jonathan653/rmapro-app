@@ -31,7 +31,7 @@
                 </div>
                 <div class="record-input-group">
                     <label for="keywords">Keywords*</label>
-                    <input type="text" name="keywords" id="keywords" required>
+                    <input type="text" name="keywords" id="keywords" >
                 </div>
             </div>
         </div>
@@ -66,19 +66,19 @@
                     <input type="text" name="address" id="address" required>
                 </div>
                 <div class="record-input-group">
-                    <label for="conditionNumber">Job Number*</label>
-                    <input type="text" name="conditionNumber" id="conditionNumber" required>
+                    <label for="jobNumber">Job Number*</label>
+                    <input type="text" name="jobNumber" id="jobNumber" required>
                 </div>
                 <div class="record-input-group">
-                    <label for="conditionStatus">Condition Status*</label>
-                    <select>
+                    <label for="jobStatus">Job Status*</label>
+                    <select name="jobStatus" id="jobStatus">
                         <option value=”active”>Active</option>
                         <option value=”inactive”>Inactive</option>
                     </select>
                 </div>
                 <div class="record-input-group">
-                    <label for="consultant">Consultant*</label>
-                    <select>
+                    <label for="consultantName">Consultant*</label>
+                    <select name="consultantName" id="consultantName">
                         <option value=”conrad-anderson”>Conrad Anderson</option>
                         <option value=”don-anderson”>Don Anderson</option>
                     </select>
@@ -94,21 +94,23 @@
                             $('.add-new-condition').append('<fieldset class="new-input-part">' +
                                 '<legend>Consent Condition</legend>' +
                                 '<a href="#" class="remove-field">Remove</a><br>' +
-                                '<label for="job-condition">Condition Number*</label><br>' +
-                                '<input type="text" name="job-condition" id="job-condition" placeholder="Enter Condition Number Here" required><br>' +
-                                '<label for="job-condition">Condition Summary / Details</label><br>' +
-                                '<input type="text" name="job-details" id="job-details" placeholder="Enter Condition Details Here" required><br>' +
-                                '<label for="condition-date">Condition date*</label><br>' +
-                                '<select><option value=”two-weeks”>2 Weeks</option>' +
-                                '<option value=”four-weeks”>4 Weeks</option><br>' +
-                                '<option value=”one-month”>1 Months</option><br>' +
-                                '<option value=”six-months”>6 Months</option><br>' +
-                                '<option value=”six-months”>Custom</option></select><br>' +
-                                '<label for="condition-reminder-date">Reminder date*</label>' +
-                                '<input type="date" id="condition-reminder-date" name="condition-reminder-date" required><br>' +
-                                '<label for="condition-status">Condition status*</label><br>' +
-                                '<select><option value=”active”>Active</option>' +
+
+                                '<label for="conditionNumber">Condition Number*</label><br>' +
+                                '<input type="text" name="conditionNumber" id="conditionNumber" placeholder="Enter Condition Number Here" required><br>' +
+                                
+                                '<label for="details">Condition Summary / Details</label><br>' +
+                                '<input type="text" name="details" id="details" placeholder="Enter Condition Details Here" required><br>' +
+                                
+                                '<label for="conditionDate">Condition date*</label><br>' +
+                                '<input type="date" name="conditionDate" id="conditionDate" required><br>' +
+                                
+                                '<label for="reminderDate">Reminder date*</label>' +
+                                '<input type="date" name="reminderDate" id="reminderDate" required><br>' +
+                                
+                                '<label for="conditionStatus">Condition status*</label><br>' +
+                                '<select name= conditionStatus id= conditionStatus><option value=”active”>Active</option>' +
                                 '<option value=”inactive”>Inactive</option>/select>' +
+                                
                                 '</fieldset>');
 
                             $('.new-input-part').on("click", ".remove-field", function (e) {
