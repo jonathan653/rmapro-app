@@ -3,6 +3,7 @@ session_start();
 
 $username = "";
 $email    = "";
+$consultantNeam ="";
 $errors = array(); 
 
 // connect to the database
