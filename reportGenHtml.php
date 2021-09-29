@@ -43,9 +43,6 @@
             <input type="text" name="keywords" id="keywords" required>
         </div>
 
-        <div class="record-input-group">
-            <input type="submit" value="Save Consent">
-        </div>
     </form>
 </body>
 
