@@ -1,5 +1,5 @@
 <?php
-$db= mysqli_connect("localhost","root","","AnC_Sep22");
+$db= mysqli_connect("127.0.0.1","root","jonathanandthescorpions","AnC_Sep22");
 $name = $_GET['search'];
 
 $sql = "SELECT * FROM users";
