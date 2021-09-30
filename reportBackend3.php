@@ -10,7 +10,7 @@ require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "AnC_Sep25");
+$link = mysqli_connect("127.0.0.1", "root", "jonathanandthescorpions", "AnC_Sep25");
  
 // Check connection
 if($link === false){
