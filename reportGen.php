@@ -1,5 +1,4 @@
 <?php
-echo "line 1";
     require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';  
 
     // reference the Dompdf namespace
@@ -7,17 +6,17 @@ echo "line 1";
 
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
-   // $dompdf->loadHtml('hello world');
+    //$dompdf->loadHtml($str);
 
     // Load HTML content 
 
-    // $dompdf->loadHtml('<h1>Welcome to AnC.com</h1>'); 
+     $dompdf->loadHtml($str); 
 
      
 
     // Load html file 
 
-    $html = file_get_contents("reportGenHtml.php"); 
+    $html = file_get_contents("reportGenBackend3.php"); 
 
     $dompdf->loadHtml($html); 
 

@@ -1,11 +1,13 @@
+//not presently in use by Monique, don't know about you guys.
+
 <?php
-$con = MySQLi_connect(
+$cdb = mysqli_connect(
     "localhost",
     "root",
     "",
-    "AnC_Sep22"
+    "AnC_Sep25"
 );
-if (MySQLi_connect_errno()) {
-    echo "Failed to connect to MySQL: " . MySQLi_connect_error();
-}
 
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
