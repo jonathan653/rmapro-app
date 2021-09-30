@@ -2,9 +2,9 @@
 
 <?php
 $cdb = mysqli_connect(
-    "localhost",
+    "127.0.0.1",
     "root",
-    "",
+    "jonathanandthescorpions",
     "AnC_Sep25"
 );
 
