@@ -13,7 +13,7 @@
 <div id="display"></div>
 
 <?php
-$db=mysqli_connect("localhost", "root", "","AnC_Sep22");
+$db=mysqli_connect("localhost", "root", "","AnC_Sep25");
 if(!$db){
     die('Could not connect MySql server:' .mysqli_error());
 }
