@@ -6,7 +6,7 @@
 CREATE TABLE `clients` (
   `clientId` varchar(7) NOT NULL,
   `company` varchar(30) NOT NULL,
-  `clientPhone` int(30) NOT NULL,
+  `clientPhone` varchar(20) NOT NULL,
   `clientEmail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -30,7 +30,7 @@ CREATE TABLE `conditions` (
   `details` varchar(2000) NOT NULL,
   `conditionDate` date NOT NULL,
   `reminderDate` date NOT NULL,
-  `conditionStatus` enum('open','closed') NOT NULL
+  `conditionStatus` varchar (10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
