@@ -18,6 +18,10 @@
                     <input type="text" name="consentNumber" id="consentNumber" >
                 </div>
                 <div class="record-input-group">
+                    <label for="address">Property Address*</label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div class="record-input-group">
                     <label for="consentDoc">Attach Consent Issue Document</label>
                     <input type="file" id="consentDoc" name="consentDoc">
                 </div>
@@ -62,10 +66,12 @@
             <div class="input-section">
                 <h3>Condition Summary / Details</h3>
                 <div class="record-input-group">
+
                     <label for="address">Property Address*</label>
                     <input type="text" name="address" id="address" >
                 </div>
                 <div class="record-input-group">
+
                     <label for="jobNumber">Job Number*</label>
                     <input type="text" name="jobNumber" id="jobNumber" >
                 </div>
