@@ -92,20 +92,20 @@ if($link->connect_error){
     $stmt->close();
     
     // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords)
-        values(?,?,?,?,?)"); 
-    $stmt->bind_param("sssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords);
+    $stmt = $link->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords,address,clientId,jobNumber)
+        values(?,?,?,?,?,?,?,?)"); 
+    $stmt->bind_param("ssssssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber);
     $stmt->execute();
-    echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords;
+    echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber;
     echo "consent details inserted successfully"."<br>";
     $stmt->close();
 
     // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus)
-        values(?,?,?,?,?)"); 
-    $stmt->bind_param("sssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus);
+    $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
+        values(?,?,?,?,?,?)"); 
+    $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
     $stmt->execute();
-    echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus;
+    echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber;
     echo "condition details inserted successfully"."<br>";
     $stmt->close();
 

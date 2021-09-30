@@ -15,7 +15,11 @@
                 <h3>Consent Details</h3>
                 <div class="record-input-group">
                     <label for="consentNumber">Consent Number*</label>
-                    <input type="text" name="consentNumber" id="consentNumber" required>
+                    <input type="text" name="consentNumber" id="consentNumber" >
+                </div>
+                <div class="record-input-group">
+                    <label for="address">Property Address*</label>
+                    <input type="text" name="address" id="address" required>
                 </div>
                 <div class="record-input-group">
                     <label for="consentDoc">Attach Consent Issue Document</label>
@@ -23,11 +27,11 @@
                 </div>
                 <div class="record-input-group">
                     <label for="issueDate">Issue Date*</label>
-                    <input type="date" id="issueDate" name="issueDate" required>
+                    <input type="date" id="issueDate" name="issueDate" >
                 </div>
                 <div class="record-input-group">
                     <label for="lapseDate">Lapse Date*</label>
-                    <input type="date" id="lapseDate" name="lapseDate" required>
+                    <input type="date" id="lapseDate" name="lapseDate" >
                 </div>
                 <div class="record-input-group">
                     <label for="keywords">Keywords*</label>
@@ -41,19 +45,19 @@
                 <h3>Client Details</h3>
                 <div class="record-input-group">
                     <label for="clientId">Client ID*</label>
-                    <input type="text" name="clientId" id="clientId" required>
+                    <input type="text" name="clientId" id="clientId" >
                 </div>
                 <div class="record-input-group">
                     <label for="company">Company/ Client Name*</label>
-                    <input type="text" name="company" id="company" required>
+                    <input type="text" name="company" id="company" >
                 </div>
                 <div class="record-input-group">
                     <label for="clientPhone">Client Phone*</label>
-                    <input type="tel" name="clientPhone" id="clientPhone" required>
+                    <input type="text" name="clientPhone" id="clientPhone" >
                 </div>
                 <div class="record-input-group">
                     <label for="clientEmail">Client Email*</label>
-                    <input type="email" name="clientEmail" id="clientEmail" required>
+                    <input type="email" name="clientEmail" id="clientEmail" >
                 </div>
             </div>
         </div>
@@ -62,12 +66,14 @@
             <div class="input-section">
                 <h3>Condition Summary / Details</h3>
                 <div class="record-input-group">
+
                     <label for="address">Property Address*</label>
-                    <input type="text" name="address" id="address" required>
+                    <input type="text" name="address" id="address" >
                 </div>
                 <div class="record-input-group">
+
                     <label for="jobNumber">Job Number*</label>
-                    <input type="text" name="jobNumber" id="jobNumber" required>
+                    <input type="text" name="jobNumber" id="jobNumber" >
                 </div>
                 <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
