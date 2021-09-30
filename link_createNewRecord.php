@@ -6,7 +6,7 @@ error_reporting(E_ALL); // print error statement
 
 /* attempt MySQL server connection. Assuming you are running 
 MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','anc_sep25');
+$link = new mysqli('127.0.0.1','root','jonathanandthescorpions','anc_sep25');
 
 
 // variables
