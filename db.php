@@ -1,10 +1,10 @@
-//not presently in use by Monique, don't know about you guys.
+
 
 <?php
 $cdb = mysqli_connect(
-    "127.0.0.1",
+    "localhost",
     "root",
-    "jonathanandthescorpions",
+    "",
     "AnC_Sep25"
 );
 

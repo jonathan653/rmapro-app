@@ -7,7 +7,7 @@ $consultantName = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect("127.0.0.1", "root", "jonathanandthescorpions", "AnC_Sep25");
+$db = mysqli_connect("localhost", "root", "", "AnC_Sep25");
 
 if($db === false){
   die("ERROR: Could not connect. " . mysqli_connect_error());

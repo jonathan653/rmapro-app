@@ -13,7 +13,7 @@
 <div id="display"></div>
 
 <?php
-$db=mysqli_connect("127.0.0.1", "root", "jonathanandthescorpions","AnC_Sep25");
+$db=mysqli_connect("localhost", "root", "","AnC_Sep25");
 ?>
 
 
