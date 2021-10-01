@@ -1,7 +1,7 @@
 
 
 <?php
-$cdb = mysqli_connect(
+$db = mysqli_connect(
     "localhost",
     "root",
     "",

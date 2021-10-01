@@ -2,7 +2,7 @@
 if (isset($_POST['search'])) {
     $Name = $_POST['search'];
     $Query = "SELECT username FROM users WHERE username LIKE '%$Name%'";
-    $ExecQuery = MySQLi_query($con, $Query);
+    $ExecQuery = MySQLi_query($db, $Query);
     echo '
 <ul>
    ';
