@@ -10,7 +10,7 @@ require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("127.0.0.1", "root", "jonathanandthescorpions", "AnC_Sep25");
+$link = mysqli_connect("127.0.0.1", "root", "", "AnC_Sep22");
  
 // Check connection
 if($link === false){
@@ -18,21 +18,25 @@ if($link === false){
 }
  
 // Attempt select query execution
-$sql = "SELECT * FROM job_details";
+$sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber INNER JOIN clients ON consent.clientId=clients.clientId";
 $str = "<html><body>";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
+        $str = $str. "<h1>Title Recall</h1>";
+        $str = $str. "<h2>Anderson and Co</h2>";
         $str = $str. "<table>";
             $str = $str.   "<tr>";
                 $str = $str .  "<th>Job Number</th>";
+                $str = $str .  "<th>Client Name/ Company</th>";
+                $str = $str .  "<th>address</th>";
                 $str = $str .  "<th>Consultant Name</th>";
-                $str = $str .  "<th>Job Status</th>";
             $str = $str .  "</tr>";
         while($row = mysqli_fetch_array($result)){
             $str = $str .  "<tr>";
                 $str = $str .  "<td>" . $row['jobNumber'] . "</td>";
+                $str = $str .  "<td>" . $row['company'] . "</td>";
+                $str = $str .  "<td>" . $row['address'] . "</td>";
                 $str = $str .  "<td>" . $row['consultantName'] . "</td>";
-                $str = $str .  "<td>" . $row['jobStatus'] . "</td>";
             $str = $str .  "</tr>";
         }
         $str = $str .  "</table>";
