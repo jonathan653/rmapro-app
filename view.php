@@ -89,10 +89,10 @@
                                         '<a href="#" class="remove-field">Remove</a><br>' +
 
                                         '<label for="conditionNumber">Condition Number*</label><br>' +
-                                        '<input type="text" name="conditionNumber" id="conditionNumber" placeholder="Enter Condition Number Here" required><br>' +
+                                        '<input type="text" name="conditionNumber" id="conditionNumber" required><br>' +
 
                                         '<label for="details">Condition Summary / Details</label><br>' +
-                                        '<input type="text" name="details" id="details" placeholder="Enter Condition Details Here" required><br>' +
+                                        '<input type="text" name="details" id="details" required><br>' +
 
                                         '<label for="conditionDate">Condition date*</label><br>' +
                                         '<input type="date" name="conditionDate" id="conditionDate" required><br>' +
