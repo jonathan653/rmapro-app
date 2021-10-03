@@ -21,12 +21,15 @@ if($link === false){
 $sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, conditions.conditionNumber, conditions.conditionDate, consent.keywords
 FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
 INNER JOIN clients ON consent.clientId=clients.clientId
-INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber";
+INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber
+WHERE reminderDate >= CURRENT_DATE AND reminderDate <= CURRENT_DATE +7 ORDER BY conditionDate";
+
 $str = "<html><body>";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
         $str = $str. "<h1>Title Recall</h1>";
         $str = $str. "<h2>Anderson and Co</h2>";
+        $str = $str. "<h3>This Week</h3>";
         $str = $str. "<table>";
             $str = $str.   "<tr>";
                 $str = $str .  "<th>Job Number</th>";
