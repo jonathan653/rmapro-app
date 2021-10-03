@@ -1,4 +1,4 @@
-<?php include ('db.php');
+<?php include('db.php');
 
 if (isset($_POST['search'])) {
     $Name = $_POST['search'];
@@ -6,17 +6,21 @@ if (isset($_POST['search'])) {
 WHERE keywords LIKE '%$Name%' OR address LIKE '%$Name%'
                   OR jobNumber LIKE '%$Name%' OR company LIKE '%$Name%'";
     $ExecQuery = MySQLi_query($db, $Query);
-    echo '<ul>';
+
+    echo '<ol>';
+
     while ($Result = MySQLi_fetch_array($ExecQuery)) {
         ?>
+        <a href="view.php">
         <li onclick='fill("")'>
-            <a href="view.php">
-                <?php echo "<table><tr><td>".$Result['jobNumber']."</td></tr>
-                 <tr><td>".$Result['company']."</td></tr>".
-                    "<tr><td>".$Result['address']."</td></tr>".
-                    "<tr><td>".$Result['keywords']."</td></tr></table>"?>
-        </li></a>
+                <?php echo "<table><tr><td>" .
+                    $Result['jobNumber'] . "</td>
+                 <td>" . $Result['company'] . "</td>" .
+                    "<td>" . $Result['address'] . "</td>" .
+                    "<td>" . $Result['keywords'] . "</td></tr></table>" ?>
+        </li></a><br>
         <?php
-    }}
+    }
+}
 ?>
-</ul>'
+</ol>'
