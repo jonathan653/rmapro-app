@@ -7,7 +7,7 @@ WHERE keywords LIKE '%$Name%' OR address LIKE '%$Name%'
                   OR jobNumber LIKE '%$Name%' OR company LIKE '%$Name%'";
     $ExecQuery = MySQLi_query($db, $Query);
     echo '<ul>';
-    if ($Result = MySQLi_fetch_array($ExecQuery)) {
+    while ($Result = MySQLi_fetch_array($ExecQuery)) {
         ?>
         <li onclick='fill("")'>
             <a href="view.php">
