@@ -18,7 +18,10 @@ if($link === false){
 }
  
 // Attempt select query execution
-$sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber INNER JOIN clients ON consent.clientId=clients.clientId";
+$sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, conditions.conditionNumber, conditions.conditionDate
+FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
+INNER JOIN clients ON consent.clientId=clients.clientId
+INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber";
 $str = "<html><body>";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -29,6 +32,8 @@ if($result = mysqli_query($link, $sql)){
                 $str = $str .  "<th>Job Number</th>";
                 $str = $str .  "<th>Client Name/ Company</th>";
                 $str = $str .  "<th>address</th>";
+                $str = $str .  "<th>Condition Date</th>";
+                $str = $str .  "<th>Condition Number</th>";
                 $str = $str .  "<th>Consultant Name</th>";
             $str = $str .  "</tr>";
         while($row = mysqli_fetch_array($result)){
@@ -36,6 +41,8 @@ if($result = mysqli_query($link, $sql)){
                 $str = $str .  "<td>" . $row['jobNumber'] . "</td>";
                 $str = $str .  "<td>" . $row['company'] . "</td>";
                 $str = $str .  "<td>" . $row['address'] . "</td>";
+                $str = $str .  "<td>" . $row['conditionDate'] . "</td>";
+                $str = $str .  "<td>" . $row['conditionNumber'] . "</td>";
                 $str = $str .  "<td>" . $row['consultantName'] . "</td>";
             $str = $str .  "</tr>";
         }
