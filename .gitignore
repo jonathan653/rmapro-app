@@ -10,7 +10,7 @@ bin/
 tmp/
 
 #ignore following files in htdocs
-*.ico
+# *.ico
 *.tmp
 
 bitnami.css
