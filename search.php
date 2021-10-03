@@ -16,5 +16,3 @@
 <?php
 $db=mysqli_connect("localhost", "root", "","AnC_Sep22");
 ?>
-
-
