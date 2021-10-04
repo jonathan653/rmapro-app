@@ -48,7 +48,7 @@
                 </div>
                 <div class="record-input-group">
                     <label for="clientPhone">Client Phone*</label>
-                    <input type="text" name="clientPhone" id="clientPhone" required>
+                    <input type="text" name="clientPhone" id="clientPhone" placeholder="Only enter digits. Do not enter spaces or special characters such as -" required>
                 </div>
                 <div class="record-input-group">
                     <label for="clientEmail">Client Email*</label>
