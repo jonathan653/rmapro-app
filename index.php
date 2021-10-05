@@ -67,16 +67,18 @@
                 <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
                     <select name="jobStatus" id="jobStatus" required>
-                        <option value=”active” selected>Active</option>
-                        <option value=”inactive”>Inactive</option>
+
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+
                     </select>
                 </div>
                 
                 <div class="record-input-group">
                    <label for="consultantName">Consultant*</label>
                     <select name="consultantName" id="consultantName" required>
-                        <option value=”conrad-anderson”>Conrad Anderson</option>
-                        <option value=”don-anderson”>Don Anderson</option>
+                        <option value="conrad-anderson">Conrad Anderson</option>
+                        <option value="don-anderson">Don Anderson</option>
                     </select>
                 </div> 
                 

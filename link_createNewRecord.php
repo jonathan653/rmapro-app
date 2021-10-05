@@ -25,6 +25,8 @@ $address  = $_POST['address'];
 $jobNumber = $_POST['jobNumber'];
 $jobStatus = $_POST['jobStatus'];
 $consultantName = $_POST['consultantName'];
+$conditionStatus = str_replace('”','',$_POST['consultantName']);
+$conditionStatus = str_replace('”','',$_POST['jobStatus']);
 
 // to store in consent table
 $consentNumber = $_POST['consentNumber'];
@@ -32,6 +34,36 @@ $issueDate = $_POST['issueDate'];
 $lapseDate = $_POST['lapseDate'];
 $consentDoc = $_POST['consentDoc'];
 $keywords = $_POST['keywords'];
+
+
+// to store in condition table
+$conditionNumber = $_POST['conditionNumber'];
+$details  = $_POST['details'];
+$conditionDate = $_POST['conditionDate'];
+$reminderDate = $_POST['reminderDate'];
+$conditionStatus = str_replace('”','',$_POST['conditionStatus']);
+echo "original" . $_POST['conditionStatus'] . ":" . $conditionStatus ."<br />";
+
+/*
+
+//echo out/test values being submitted
+echo $clientId."<br>".$company."<br>".$clientEmail."<br>".$clientPhone."<br>";
+echo $jobNumber."<br>".$jobStatus."<br>";
+echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate."<br>".$conditionStatus."<br>";
+echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
+echo $address."<br>";
+
+$sql = "insert into clients(clientId,company,clientEmail,clientPhone) values('$clientId','$company','$clientEmail','$clientPhone')";
+$sql = "insert into job_details(jobNumber,jobStatus) values('$jobNumber','$jobStatus')";
+$sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$reminderDate','$conditionStatus')";
+$sql = "insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords) values('$consentNumber','$issueDate','$lapseDate','$consentDoc','$keywords')";
+$sql = "insert into property(address) values('$address')";
+
+
+
+ //$link->query($sql);
+
+*/
 
 //check connection
 if($db->connect_error){

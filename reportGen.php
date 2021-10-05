@@ -1,3 +1,5 @@
+//not presently in use, but keeping for reference
+
 <?php
     require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';  
 
@@ -10,7 +12,7 @@
 
     // Load HTML content 
 
-     $dompdf->loadHtml($str); 
+    // $dompdf->loadHtml($str); 
 
      
 

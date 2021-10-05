@@ -23,23 +23,23 @@ $sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.
 FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
 INNER JOIN clients ON consent.clientId=clients.clientId
 INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber
-WHERE reminderDate >= CURRENT_DATE AND reminderDate <= ADDDATE(CURRENT_DATE, INTERVAL 7 DAY)
-OR (lapseDate>= CURRENT_DATE AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 9 MONTH))
+WHERE (reminderDate >= CURRENT_DATE AND reminderDate <= ADDDATE(CURRENT_DATE, INTERVAL 7 DAY)) AND jobStatus = 'active' AND conditionStatus = 'active'
+OR (lapseDate>= CURRENT_DATE AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 9 MONTH) AND jobStatus = 'active')
 ORDER BY conditionDate";
 
 $sql2 = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, conditions.conditionNumber, conditions.conditionDate, consent.keywords
 FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
 INNER JOIN clients ON consent.clientId=clients.clientId
 INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber
-WHERE (reminderDate > ADDDATE(CURRENT_DATE, INTERVAL 7 day) AND reminderDate <= ADDDATE(CURRENT_DATE, INTERVAL 30 DAY)) 
-OR (lapseDate>= ADDDATE(CURRENT_DATE, INTERVAL 9 MONTH) AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 10 MONTH)) ORDER BY conditionDate";
+WHERE (reminderDate > ADDDATE(CURRENT_DATE, INTERVAL 7 day) AND reminderDate <= ADDDATE(CURRENT_DATE, INTERVAL 30 DAY)) AND jobStatus = 'active' AND conditionStatus = 'active' 
+OR (lapseDate>= ADDDATE(CURRENT_DATE, INTERVAL 9 MONTH) AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 10 MONTH) AND jobStatus = 'active') ORDER BY conditionDate";
 
 $sql3 = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, conditions.conditionNumber, conditions.conditionDate, consent.keywords
 FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
 INNER JOIN clients ON consent.clientId=clients.clientId
 INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber
 WHERE (reminderDate > ADDDATE(CURRENT_DATE, INTERVAL 30 day) AND reminderDate <= ADDDATE(CURRENT_DATE, INTERVAL 90 DAY)) 
-OR (lapseDate> ADDDATE(CURRENT_DATE, INTERVAL 10 MONTH) AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 12 MONTH)) ORDER BY conditionDate";
+OR (lapseDate> ADDDATE(CURRENT_DATE, INTERVAL 10 MONTH) AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 12 MONTH)) AND jobStatus = 'active' ORDER BY conditionDate";
 
 $str = "<html><body>";
 if($result = mysqli_query($link, $sql)){
