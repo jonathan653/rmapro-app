@@ -1,4 +1,7 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+require('db.php');
+?>
+
 
 <script src="jquery-3.6.0.js"></script>
 <script src="script.js"></script>
@@ -13,6 +16,6 @@
 
 <div id="display"></div>
 
-<?php
+<!-- <?php
 $db=mysqli_connect("localhost", "root", "","AnC_Sep22");
-?>
+?> -->
