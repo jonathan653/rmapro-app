@@ -5,7 +5,7 @@
             <div class="wrapper">
                 <div class="form-group">
                     <div class="input-section">
-                        <h3>Consent Details</h3>
+                        <h2>Consent Details</h2>
                         <div class="record-input-group">
                             <label for="consentNumber">Consent Number*</label>
                             <input type="text" name="consentNumber" id="consentNumber" required>
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <div class="input-section">
-                        <h3>Client Details</h3>
+                        <h2>Client Details</h2>
                         <div class="record-input-group">
                             <label for="clientId">Client ID*</label>
                             <input type="text" name="clientId" id="clientId" required>
@@ -57,7 +57,7 @@
 
                 <div class="form-group">
                     <div class="input-section">
-                        <h3>Condition Summary / Details</h3>
+                        <h2>Condition Summary / Details</h2>
                         <div class="record-input-group">
                             <label for="jobNumber">Job Number*</label>
                             <input type="text" name="jobNumber" id="jobNumber" required>
