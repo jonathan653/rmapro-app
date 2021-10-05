@@ -18,6 +18,9 @@ if (isset($_GET['logout'])) {
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.6.0.js"></script>
+    <link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
 </head>
 
 <body>
