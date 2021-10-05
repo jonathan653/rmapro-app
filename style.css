@@ -173,8 +173,12 @@ h1 {
   padding: 5px;
 }
 
+.search-title {
+  text-align: center;
+}
+
 .search-bar {
-  margin-top: 5%;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
@@ -192,7 +196,8 @@ h1 {
 
 #display {
   display: flex;
-  justify-content: center;
+  padding-left: 40%;
+  margin-top: 20px;
 }
 
 .new-condition {
@@ -203,4 +208,8 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 0 0 50px 0;
+}
+
+table td {
+  padding-right: 30px;
 }
