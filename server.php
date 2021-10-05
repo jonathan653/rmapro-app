@@ -1,4 +1,5 @@
 <?php
+require('db.php');
 session_start();
 
 $username = "";
@@ -8,8 +9,6 @@ $errors = array();
 
 // // connect to the database
 // $db = mysqli_connect("localhost", "root", "", "AnC_Sep22");
-
-require('db.php');
 
 if($db === false){
   die("ERROR: Could not connect. " . mysqli_connect_error());
