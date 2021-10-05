@@ -39,6 +39,7 @@ if (isset($_GET['logout'])) {
 <?php endif ?>
 
 <nav class="nav-bar">
+    <img src="logotransparent.png" width="200" height="175"><br>
     <a href="index.php">Create New Record</a> |
     <a href="search.php">Search Records</a> |
     <a href="report.php">Report View</a>
