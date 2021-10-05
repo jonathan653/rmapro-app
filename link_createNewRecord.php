@@ -1,12 +1,13 @@
 <?php
+require('db.php');
 
 ini_set('display_errors', 1); // print error statement
 ini_set('display_startup_errors', 1); // print error statement
 error_reporting(E_ALL); // print error statement
 
-/* attempt MySQL server connection. Assuming you are running 
-MySQL server with default setting (user 'root' with no password)*/
-$link = new mysqli('localhost','root','','AnC_Sep22');
+// /* attempt MySQL server connection. Assuming you are running 
+// MySQL server with default setting (user 'root' with no password)*/
+// $link = new mysqli('localhost','root','','AnC_Sep22');
 
 
 // variables
@@ -64,11 +65,11 @@ $sql = "insert into property(address) values('$address')";
 */
 
 //check connection
-if($link->connect_error){
+if($db->connect_error){
     die('Connection Failed : '.$link->connect_error);
 }else{
         // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into clients(clientId,company,clientEmail,clientPhone)
+    $stmt = $db->prepare("insert into clients(clientId,company,clientEmail,clientPhone)
         values(?,?,?,?)"); 
     $stmt->bind_param("sssi",$clientId,$company,$clientEmail,$clientPhone);
     $stmt->execute();
@@ -77,7 +78,7 @@ if($link->connect_error){
     $stmt->close();
         
    // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into property(address)
+    $stmt = $db->prepare("insert into property(address)
     values(?)"); 
     $stmt->bind_param("s",$address);
     $stmt->execute();
@@ -86,7 +87,7 @@ if($link->connect_error){
     $stmt->close();
 
     // insert variables into database using prepared statements
-    $stmt = $link->prepare("insert into job_details(jobNumber, jobStatus,consultantName)
+    $stmt = $db->prepare("insert into job_details(jobNumber, jobStatus,consultantName)
         values(?,?,?)");
     $stmt->bind_param("sss", $jobNumber, $jobStatus,$consultantName);
     $stmt->execute();
@@ -95,7 +96,7 @@ if($link->connect_error){
     $stmt->close();
     
     // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords,address,clientId,jobNumber)
+    $stmt = $db->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords,address,clientId,jobNumber)
         values(?,?,?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber);
     $stmt->execute();
@@ -104,7 +105,7 @@ if($link->connect_error){
     $stmt->close();
 
     // insert variables into datbase using prepared statements
-    $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
+    $stmt = $db->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
         values(?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
     $stmt->execute();
@@ -114,7 +115,7 @@ if($link->connect_error){
 
 }
 
-$link->close();
+$db->close();
 ?>
 
 

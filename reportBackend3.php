@@ -1,5 +1,6 @@
 
 <?php
+require('db.php');
 require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';  
 
     // reference the Dompdf namespace
@@ -8,9 +9,9 @@ require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
 
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("127.0.0.1", "root", "", "AnC_Sep22");
+// /* Attempt MySQL server connection. Assuming you are running MySQL
+// server with default setting (user 'root' with no password) */
+// $link = mysqli_connect("127.0.0.1", "root", "", "AnC_Sep22");
  
 // Check connection
 if($link === false){

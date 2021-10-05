@@ -7,20 +7,21 @@ WHERE keywords LIKE '%$Name%' OR address LIKE '%$Name%'
                   OR jobNumber LIKE '%$Name%' OR company LIKE '%$Name%'";
     $ExecQuery = MySQLi_query($db, $Query);
 
-    echo '<ol>';
+    echo '<ul>';
 
     while ($Result = MySQLi_fetch_array($ExecQuery)) {
         ?>
-        <a href="view.php">
+        <!--<a href= <?php //echo "view.php?search=" .$Result['jobNumber'];  ?>>-->
         <li onclick='fill("")'>
-                <?php echo "<table><tr><td>" .
-                    $Result['jobNumber'] . "</td>
-                 <td>" . $Result['company'] . "</td>" .
-                    "<td>" . $Result['address'] . "</td>" .
-                    "<td>" . $Result['keywords'] . "</td></tr></table>" ?>
+            <?php echo "<table><tr><td>Job #</td><td>" .
+                $Result['jobNumber'] . "</td>
+                 </tr><tr><td>Name</td><td>" . $Result['company'] . "</td></tr>" .
+                "<tr><td>Address</td><td>" . $Result['address'] . "</td></tr>" .
+                "<tr><td>Keywords</td><td>" . $Result['keywords'] . "</td></tr>"
+                ."</tr></table>" ?>
         </li></a><br>
         <?php
     }
 }
 ?>
-</ol>
+</ul>
