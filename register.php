@@ -19,7 +19,7 @@
 			<input type="text" name="username" placeholder="Your username" value="<?php echo $username; ?>">
 		</div>
 		<div class="input-group">
-			<input type="text" name="consultantName" placeholder="Your Name" value="<?php echo $consultantName; ?>">
+			<input type="text" name="consultantName" placeholder="Your Full Name" value="<?php echo $consultantName; ?>">
 		</div>
 		<div class="input-group">
 			<input type="email" name="email" placeholder="Your email" value="<?php echo $email; ?>">
