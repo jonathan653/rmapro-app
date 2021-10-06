@@ -11,10 +11,10 @@ require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';
 
 // /* Attempt MySQL server connection. Assuming you are running MySQL
 // server with default setting (user 'root' with no password) */
-// $link = mysqli_connect("127.0.0.1", "root", "", "AnC_Sep22");
+//$link = mysqli_connect("localhost", "root", "", "AnC_Sep22");
  
 // Check connection
-if($link === false){
+if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
@@ -42,7 +42,7 @@ WHERE (reminderDate > ADDDATE(CURRENT_DATE, INTERVAL 30 day) AND reminderDate <=
 OR (lapseDate> ADDDATE(CURRENT_DATE, INTERVAL 10 MONTH) AND lapseDate<= ADDDATE(CURRENT_DATE, INTERVAL 12 MONTH)) AND jobStatus = 'active' ORDER BY conditionDate";
 
 $str = "<html><body>";
-if($result = mysqli_query($link, $sql)){
+if($result = mysqli_query($db, $sql)){
     if(mysqli_num_rows($result) > 0){
         $str = $str. "<h1>Title Recall</h1>";
         $str = $str. "<h2>Anderson and Co</h2>";
@@ -75,10 +75,10 @@ if($result = mysqli_query($link, $sql)){
         echo "No records matching your query were found.";
     }
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
 
-if($result2 = mysqli_query($link, $sql2)){
+if($result2 = mysqli_query($db, $sql2)){
     if(mysqli_num_rows($result2) > 0){
         $str = $str. "<h3>Rest of the coming month</h3>";
         $str = $str. "<table>";
@@ -109,10 +109,10 @@ if($result2 = mysqli_query($link, $sql2)){
         echo "No records matching your query were found.";
     }
 } else{
-    echo "ERROR: Could not able to execute $sql2. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $sql2. " . mysqli_error($db);
 }
 
-if($result3 = mysqli_query($link, $sql3)){
+if($result3 = mysqli_query($db, $sql3)){
     if(mysqli_num_rows($result3) > 0){
         $str = $str. "<h3>Rest of the coming 90 Days</h3>";
         $str = $str. "<table>";
@@ -143,12 +143,12 @@ if($result3 = mysqli_query($link, $sql3)){
         echo "No records matching your query were found.";
     }
 } else{
-    echo "ERROR: Could not able to execute $sql3. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $sql3. " . mysqli_error($db);
 }
 
 $str = $str . "</body></html>";
 // Close connection
-mysqli_close($link);
+mysqli_close($db);
 
 //This is how you pass $str to the dompdf function for converting html to pdf
 $dompdf->loadHtml($str);
