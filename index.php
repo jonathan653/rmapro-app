@@ -1,4 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+require('db.php');
+?>
 
 <h1>Create New Record</h1>
 <p id="date-time"></p>
@@ -67,10 +69,8 @@
                 <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
                     <select name="jobStatus" id="jobStatus" required>
-
-                        <option value="active">Active</option>
+                        <option value="active"selected>Active</option>
                         <option value="inactive">Inactive</option>
-
                     </select>
                 </div>
                 
@@ -80,8 +80,8 @@
                         <option value="conrad-anderson">Conrad Anderson</option>
                         <option value="don-anderson">Don Anderson</option>
                     </select>
-                </div> 
-                
+                </div>             
+              
                 <button class="add_more_button">Add New Condition</button>
 
                 <div class="add-new-condition"></div>

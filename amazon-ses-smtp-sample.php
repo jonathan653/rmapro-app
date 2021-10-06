@@ -26,7 +26,7 @@ $passwordSmtp = 'BFH7dMJyyM5qBB3XZJJT6YEi4PyR7SHURCknaHVRNPZV';
 
 // Specify a configuration set. If you do not want to use a configuration
 // set, comment or remove the next line.
-$configurationSet = 'ConfigSet';
+// $configurationSet = 'ConfigSet';
 
 // If you're using Amazon SES in a region other than US West (Oregon),
 // replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP
