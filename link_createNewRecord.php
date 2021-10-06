@@ -25,8 +25,8 @@ $address  = $_POST['address'];
 $jobNumber = $_POST['jobNumber'];
 $jobStatus = $_POST['jobStatus'];
 $consultantName = $_POST['consultantName'];
-$conditionStatus = str_replace('”','',$_POST['consultantName']);
-$conditionStatus = str_replace('”','',$_POST['jobStatus']);
+$consultantName = str_replace('”','',$_POST['consultantName']);
+$jobStatus = str_replace('”','',$_POST['jobStatus']);
 
 // to store in consent table
 $consentNumber = $_POST['consentNumber'];
