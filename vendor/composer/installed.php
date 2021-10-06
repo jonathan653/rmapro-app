@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'cc80ba22b4c2325a42b9d44a78a675e769163ce4',
+        'reference' => '5185cc8018aab46e7317896931196c24b85b8d24',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'cc80ba22b4c2325a42b9d44a78a675e769163ce4',
+            'reference' => '5185cc8018aab46e7317896931196c24b85b8d24',
             'dev_requirement' => false,
         ),
         'aws/aws-crt-php' => array(
@@ -71,6 +71,15 @@
             'install_path' => __DIR__ . '/../mtdowling/jmespath.php',
             'aliases' => array(),
             'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.1',
+            'version' => '6.5.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'dd803df5ad7492e1b40637f7ebd258fee5ca7355',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
