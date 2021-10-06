@@ -1,4 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+require('db.php');
+?>
 
 <h1>Create New Record</h1>
 <p id="date-time"></p>
@@ -139,7 +141,7 @@
         </div>
     </div>
     <div class="submit-btn">
-    <button class="centre-btn" type="submit">Save Record</button>
+    <button class="centre-btn" type="submit" @click.prevent="confirm()">Save Record</button>
     </div>
 </form>
 
