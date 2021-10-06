@@ -81,6 +81,34 @@
                         <option value="don-anderson">Don Anderson</option>
                     </select>
                 </div> 
+
+                <?Php
+                echo "<br>Consultant*";
+                require 'db.php';
+                echo "test1";
+                $query = "SELECT consultantName FROM users "; 
+                echo "test2";
+                /* You can add order by clause to the sql statement if the names are to be displayed in alphabetical order */
+                if($r_set=$db->query($query)){
+                    echo "test3";
+                    echo "<select name=users>";
+                    echo "test4";
+                        while($row=$r_set->fetch_assoc()){
+                            echo "test5";
+                            echo "<option value=$row[consultantName]></option>";
+                            echo "test6";
+                        }
+                        echo "</select>"; // Closing of list box
+                    }else{
+                        echo $db->error;
+                    }
+                
+            ?>
+
+                 echo '</select>';
+                echo '</form>';
+                } 
+
                 
                 <button class="add_more_button">Add New Condition</button>
 
