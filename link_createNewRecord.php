@@ -67,7 +67,7 @@ $sql = "insert into property(address) values('$address')";
 
 //check connection
 if($db->connect_error){
-    die('Connection Failed : '.$link->connect_error);
+    die('Connection Failed : '.$db->connect_error);
 }else{
         // insert variables into datbase using prepared statements
     $stmt = $db->prepare("insert into clients(clientId,company,clientEmail,clientPhone)
@@ -115,7 +115,7 @@ while (isset($_POST['conditionNumber' . $i])) {
    $conditionStatus = $_POST['conditionStatus'.$i];
 
    // insert variables into datbase using prepared statements
-  $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
+  $stmt = $db->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
   values(?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
     $stmt->execute();
