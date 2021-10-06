@@ -1,4 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+require('db.php');
+?>
 
 <h1>Create New Record</h1>
 <p id="date-time"></p>
