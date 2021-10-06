@@ -36,38 +36,9 @@ $consentDoc = $_POST['consentDoc'];
 $keywords = $_POST['keywords'];
 
 
-// to store in condition table
-$conditionNumber = $_POST['conditionNumber'];
-$details  = $_POST['details'];
-$conditionDate = $_POST['conditionDate'];
-$reminderDate = $_POST['reminderDate'];
-$conditionStatus = str_replace('”','',$_POST['conditionStatus']);
-echo "original" . $_POST['conditionStatus'] . ":" . $conditionStatus ."<br />";
-
-/*
-
-//echo out/test values being submitted
-echo $clientId."<br>".$company."<br>".$clientEmail."<br>".$clientPhone."<br>";
-echo $jobNumber."<br>".$jobStatus."<br>";
-echo $conditionNumber."<br>".$details."<br>".$conditionDate."<br>".$reminderDate."<br>".$conditionStatus."<br>";
-echo $consentNumber."<br>".$issueDate."<br>".$lapseDate."<br>".$consentDoc."<br>".$keywords."<br>";
-echo $address."<br>";
-
-$sql = "insert into clients(clientId,company,clientEmail,clientPhone) values('$clientId','$company','$clientEmail','$clientPhone')";
-$sql = "insert into job_details(jobNumber,jobStatus) values('$jobNumber','$jobStatus')";
-$sql = "insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus) values('$conditionNumber','$details','$conditionDate','$reminderDate','$conditionStatus')";
-$sql = "insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords) values('$consentNumber','$issueDate','$lapseDate','$consentDoc','$keywords')";
-$sql = "insert into property(address) values('$address')";
-
-
-
- //$link->query($sql);
-
-*/
-
 //check connection
 if($db->connect_error){
-    die('Connection Failed : '.$link->connect_error);
+    die('Connection Failed : '.$db->connect_error);
 }else{
         // insert variables into datbase using prepared statements
     $stmt = $db->prepare("insert into clients(clientId,company,clientEmail,clientPhone)
@@ -112,10 +83,11 @@ while (isset($_POST['conditionNumber' . $i])) {
     $details  = $_POST['details'. $i];
     $conditionDate = $_POST['conditionDate'.$i];
     $reminderDate = $_POST['reminderDate'.$i];
-   $conditionStatus = $_POST['conditionStatus'.$i];
+   $conditionStatus = str_replace('”','',$_POST['conditionStatus'.$i]);
+
 
    // insert variables into datbase using prepared statements
-  $stmt = $link->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
+  $stmt = $db->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
   values(?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
     $stmt->execute();
