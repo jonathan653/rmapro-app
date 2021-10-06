@@ -71,14 +71,31 @@
                         <option value="inactive">Inactive</option>
                     </select>
                 </div>
+
+                <?Php
+                echo "<br>Consultant*";
+                require "db.php";// Database connection
+                //////////////////////////////
+                if($r_set = $db->query("SELECT consultantName from users")){
                 
-                <div class="record-input-group">
+                echo "<select id=name consultantName=name class='form-control' style='width:100px;'>";
+                while ($row = $r_set->fetch_assoc()) {
+                echo "<option value=$row[id]>$row[consultantName]</option>";
+                }
+                echo "</select>";
+                }else{
+                echo $db->error;
+                }
+                ?>
+                <br> <br>
+                
+                <!-- <div class="record-input-group">
                    <label for="consultantName">Consultant*</label>
                     <select name="consultantName" id="consultantName" required>
                         <option value="conrad-anderson">Conrad Anderson</option>
                         <option value="don-anderson">Don Anderson</option>
                     </select>
-                </div>             
+                </div>              -->
               
                 <button class="add_more_button">Add New Condition</button>
 
