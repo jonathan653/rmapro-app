@@ -17,10 +17,6 @@
                     <input type="text" name="address" id="address" required>
                 </div>
                 <div class="record-input-group">
-                    <label for="consentDoc">Attach Consent Issue Document</label>
-                    <input type="file" id="consentDoc" name="consentDoc">
-                </div>
-                <div class="record-input-group">
                     <label for="issueDate">Issue Date*</label>
                     <input type="date" id="issueDate" name="issueDate" required>
                 </div>
