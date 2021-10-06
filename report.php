@@ -25,7 +25,7 @@ require('db.php'); ?>
     <script>
         $(function() {
             $('input[id="custom"]').daterangepicker({
-                opens: 'centre'
+                opens: 'center'
             }, function(start, end, label) {
                 alert(("Your selected date range is: " + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY')));
             });
@@ -172,11 +172,19 @@ if ($answer == "all") {  ?>
     </body>
     </html> <?php          
          
-}elseif ($answer == "custom") {          
-    echo 'custom';      
+}elseif ($answer == "custom") {?>
+    <script type="text/javascript">
+    $('#daterange').daterangepicker();
+    $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+    var startDate = picker.startDate.format('YYYY-MM-DD');
+    var endDate = picker.endDate.format('YYYY-MM-DD');
+    return startDate;
+    });
+    </script> <?php
+    echo "<script>document.writeln(startDate);</script>";     
 }
-else {
-    echo 'nothng selected';
+else { 
+    echo "nothing selected";
 }  
 
 ?>

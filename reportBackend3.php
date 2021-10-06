@@ -46,6 +46,7 @@ if($result = mysqli_query($db, $sql)){
     if(mysqli_num_rows($result) > 0){
         $str = $str. "<h1>Title Recall</h1>";
         $str = $str. "<h2>Anderson and Co</h2>";
+        $str = $str. "<p>Active jobs filtered by lapse date and condition reminder date</p>";
         $str = $str. "<h3>This Week</h3>";
         $str = $str. "<table>";
             $str = $str.   "<tr>";
