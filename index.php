@@ -75,13 +75,15 @@
                 <?Php
                 echo "<br>Consultant*";
                 require "db.php";// Database connection
-                //////////////////////////////
+                
                 if($r_set = $db->query("SELECT consultantName from users")){
                 
-                echo "<select id=name consultantName=name class='form-control' style='width:100px;'>";
+                echo "<select name='consultantName' id='consultantName'>";
                 while ($row = $r_set->fetch_assoc()) {
-                echo "<option value=$row[id]>$row[consultantName]</option>";
+
+                echo "<option value='" . $row["id"] . "'>" . $row["consultantName"] . "</option>";
                 }
+                
                 echo "</select>";
                 }else{
                 echo $db->error;

@@ -120,6 +120,7 @@ $sql = "insert into property(address) values('$address')";
 
  
 }
+print_r($_POST);
 
 $db->close();
 ?>
