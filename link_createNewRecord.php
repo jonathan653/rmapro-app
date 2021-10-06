@@ -45,8 +45,8 @@ if($db->connect_error){
         values(?,?,?,?)"); 
     $stmt->bind_param("sssi",$clientId,$company,$clientEmail,$clientPhone);
     $stmt->execute();
-    echo $clientId, $company, $clientEmail, $clientPhone;
-    echo "client details inserted successfully"."<br>";
+    //echo $clientId, $company, $clientEmail, $clientPhone;
+    //echo "client details inserted successfully"."<br>";
     $stmt->close();
         
    // insert variables into datbase using prepared statements
@@ -54,8 +54,8 @@ if($db->connect_error){
     values(?)"); 
     $stmt->bind_param("s",$address);
     $stmt->execute();
-    echo $address;
-    echo "property details inserted successfully"."<br>";
+    //echo $address;
+    //echo "property details inserted successfully"."<br>";
     $stmt->close();
 
     // insert variables into database using prepared statements
@@ -63,8 +63,8 @@ if($db->connect_error){
         values(?,?,?)");
     $stmt->bind_param("sss", $jobNumber, $jobStatus,$consultantName);
     $stmt->execute();
-    echo $jobNumber, $jobStatus, $consultantName;
-    echo "job details inserted successfully"."<br>";
+    //echo $jobNumber, $jobStatus, $consultantName;
+    //echo "job details inserted successfully"."<br>";
     $stmt->close();
     
     // insert variables into datbase using prepared statements
@@ -72,8 +72,8 @@ if($db->connect_error){
         values(?,?,?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber);
     $stmt->execute();
-    echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber;
-    echo "consent details inserted successfully"."<br>";
+    //echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber;
+    //echo "consent details inserted successfully"."<br>";
     $stmt->close();
 
 $i = 1;
@@ -91,8 +91,8 @@ while (isset($_POST['conditionNumber' . $i])) {
   values(?,?,?,?,?,?)"); 
     $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
     $stmt->execute();
-    echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber;
-    echo "condition details inserted successfully"."<br>";
+    //echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber;
+    //echo "condition details inserted successfully"."<br>";
     $stmt->close();
 
 $i++;
@@ -117,11 +117,16 @@ $sql = "insert into property(address) values('$address')";
  //$link->query($sql);
 
 */
+include('header.php'); 
+echo '<style>
+h2 {text-align: center;}
+</style>
+<h2>Record entered successfully</h2>';
 
- 
 }
-
 $db->close();
+
+
 ?>
 
 

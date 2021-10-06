@@ -126,7 +126,7 @@ require('db.php');
         </div>
     </div>
     <div class="submit-btn">
-    <button class="centre-btn" type="submit">Save Record</button>
+    <button class="centre-btn" type="submit" @click.prevent="confirm()">Save Record</button>
     </div>
 </form>
 
