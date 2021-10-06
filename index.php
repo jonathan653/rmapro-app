@@ -12,7 +12,7 @@ require('db.php');
                 <h2>Consent Details</h2>
                 <div class="record-input-group">
                     <label for="consentNumber">Consent Number*</label>
-                    <input type="text" name="consentNumber" id="consentNumber" required>
+                    <input type="text" name="consentNumber" id="consentNumber" maxlength="12" required>
                 </div>
                 <div class="record-input-group">
                     <label for="address">Property Address*</label>
@@ -42,7 +42,7 @@ require('db.php');
                 <h2>Client Details</h2>
                 <div class="record-input-group">
                     <label for="clientId">Client ID*</label>
-                    <input type="text" name="clientId" id="clientId" required>
+                    <input type="text" name="clientId" id="clientId" maxlength="7" required>
                 </div>
                 <div class="record-input-group">
                     <label for="company">Company/ Client Name*</label>
@@ -64,7 +64,7 @@ require('db.php');
                 <h2>Condition Summary / Details</h2>
                 <div class="record-input-group">
                     <label for="jobNumber">Job Number*</label>
-                    <input type="text" name="jobNumber" id="jobNumber" required>
+                    <input type="text" name="jobNumber" id="jobNumber" maxlength="4" required>
                 </div>
                 <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
@@ -97,7 +97,7 @@ require('db.php');
                                 '<a href="#" class="remove-field">Remove</a><br>' +
 
                                 '<label for="conditionNumber">Condition Number*</label><br>' +
-                                '<input type="text" name="conditionNumber' + arrayC + '" id="conditionNumber" required><br>' +
+                                '<input type="text" name="conditionNumber' + arrayC + '" id="conditionNumber" maxlength="4" required><br>' +
                                 
                                 '<label for="details">Condition Summary / Details</label><br>' +
                                 '<input type="text" name="details' + arrayC + '" id="details" required><br>' +
@@ -126,7 +126,7 @@ require('db.php');
         </div>
     </div>
     <div class="submit-btn">
-    <button class="centre-btn" type="submit" @click.prevent="confirm()">Save Record</button>
+    <button class="centre-btn" type="submit">Save Record</button>
     </div>
 </form>
 
