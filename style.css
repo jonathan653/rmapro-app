@@ -97,6 +97,12 @@ body {
   margin-bottom: 10%;
 }
 
+.update-centre-btn {
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 0 10% 145%;
+}
+
 .account {
   font-size: 14px;
 }
