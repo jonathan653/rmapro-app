@@ -71,8 +71,8 @@ if($db->connect_error){
         values(?,?,?,?,?,?,?)"); 
     $stmt->bind_param("sssssss",$consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber);
     $stmt->execute();
-    echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
-    echo "consent details inserted successfully"."<br>";
+    //echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
+    //echo "consent details inserted successfully"."<br>";
     $stmt->close();
 
 $i = 1;
@@ -124,7 +124,6 @@ h2 {text-align: center;}
 
 }
 
-print_r($_POST);
 
 
 $db->close();

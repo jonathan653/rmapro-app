@@ -76,10 +76,10 @@ require('db.php');
                 
                 if($r_set = $db->query("SELECT consultantName from users")){
                 
-                echo "<select name='consultantName' id='consultantName'>";
+                echo "<select name='consultantName' id='consultantName' required>";
                 while ($row = $r_set->fetch_assoc()) {
-
-                echo "<option value='" . $row["id"] . "'>" . $row["consultantName"] . "</option>";
+                    if (!empty($row["consultantName"]))
+                        echo "<option value='" . $row["consultantName"] . "'>" . $row["consultantName"] . "</option>";
                 }
                 
                 echo "</select>";
