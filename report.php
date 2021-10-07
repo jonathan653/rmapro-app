@@ -10,13 +10,13 @@ require('db.php'); ?>
 
 <form class="report-form-group" method="post">
 
-    <label for="consultant-name">Consultant Name*</label>
+    <!-- <label for="consultant-name">Consultant Name*</label>
     <select>
         <option value=”conrad”>All Consultants</option>
         <option value=”conrad”>Conrad Anderson</option>
         <option value=”don”>Don Anderson</option>
     </select><br>
-    <br>
+    <br> -->
     <input type="radio" name="report-type" id="all" value="allJobs" required> View All Active Jobs<br>
     <input type="radio" name="report-type" id="all" value="allConditions" required> View All Active Conditions<br>
     <input type="radio" name="report-type" id="one-month" value="one-month" required> One Month Report<br>
@@ -79,7 +79,7 @@ if ($answer == "allJobs") {  ?>
     } else {
     echo "0 results";
     }
-    $db>close();
+    //$db>close();
     ?>
 
     </body>
@@ -123,7 +123,7 @@ if ($answer == "allJobs") {  ?>
             } else {
             echo "0 results";
             }
-            $db>close();
+           // $db>close();
             ?>
         
             </body>
@@ -168,7 +168,7 @@ if ($answer == "allJobs") {  ?>
     } else {
     echo "0 results";
     }
-    $db>close();
+    //$db>close();
     ?>
 
     </body>
@@ -212,7 +212,7 @@ if ($answer == "allJobs") {  ?>
     } else {
     echo "0 results";
     }
-    $db>close();
+    //$db>close();
     ?>
 
     </body>
