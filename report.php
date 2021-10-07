@@ -58,22 +58,20 @@ if ($answer == "allJobs") {  ?>
     <?php
 
     // Attempt select query execution
-    $sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, conditions.conditionNumber, conditions.conditionDate, consent.keywords
+    $sql = "SELECT consent.jobNumber, consent.address, clients.company, job_details.consultantName, consent.keywords, consent.lapseDate
     FROM consent INNER JOIN job_details ON consent.jobNumber=job_details.jobNumber 
     INNER JOIN clients ON consent.clientId=clients.clientId
-    INNER JOIN conditions ON consent.consentNumber=conditions.consentNumber
     WHERE jobStatus = 'active'
-    GROUP BY jobNumber
     ORDER BY lapseDate";
 
     $result = $db->query($sql);
 
     if ($result->num_rows > 0) {
         echo "<h1>All active jobs ordered by lapse date and grouped by jobNumber</h1>";
-        echo "<table> <tr> <th>Job Number</th> <th>Keywords</th> <th>Company</th> <th>Address</th> <th>conditionDate</th> <th>conditionNumber</th> <th>consultantName</th> </tr>";
+        echo "<table> <tr> <th>Job Number</th> <th>Keywords</th> <th>Company</th> <th>Address</th> <th>Consultant Name</th> <th>Lapse Date</th> </tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["jobNumber"] ."</td><td>". $row["keywords"]. "</td><td>" . $row["company"] . "</td><td>" . $row["address"]. "</td><td>" . $row["conditionDate"]. "</td><td>" . $row["conditionNumber"]. "</td><td>" . $row["consultantName"]. "</td></tr>";
+        echo "<tr><td>" . $row["jobNumber"] ."</td><td>". $row["keywords"]. "</td><td>" . $row["company"] . "</td><td>" . $row["address"]. "</td><td>" . $row["consultantName"]. "</td><td>" . $row["lapseDate"]. "</td></tr>";
     }
     echo "</table>";
     } else {
