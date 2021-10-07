@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Title Recall</title>
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.6.0.js"></script>
     <link rel="icon" 
