@@ -22,7 +22,7 @@ WHERE consent.jobNumber = '".$jobNumber."'";
     }
     ?>
 
-    <form action="view.php" method="POST">
+    <form action="" method="POST">
         <div class="wrapper">
             <div class="form-group">
                 <div class="input-section">
