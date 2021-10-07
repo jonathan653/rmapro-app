@@ -40,7 +40,9 @@ if($db->connect_error){
     die('Connection Failed : '.$db->connect_error);
 }else{
         // update variables into datbase using prepared statements
-    $stmt = $db->prepare("update clients set clientId=?,company=?,clientEmail=?,clientPhone=?"); 
+    $stmt = $db->prepare("update clients 
+    set company=?,clientEmail=?,clientPhone=?
+    where clientId = ?"); 
     $stmt->bind_param("sssi",$clientId,$company,$clientEmail,$clientPhone);
     $stmt->execute();
     //echo $clientId, $company, $clientEmail, $clientPhone;
