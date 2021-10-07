@@ -6,6 +6,9 @@ include('server.php')
 <html>
 
 <head>
+<link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">    
     <title>Anderson app</title>
     <link rel="stylesheet" href="style.css">
 </head>
