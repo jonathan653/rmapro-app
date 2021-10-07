@@ -93,7 +93,7 @@ WHERE consent.jobNumber = '".$jobNumber."'";
     echo "<br>Job Status*";
     require "db.php";// Database connection
     
-    if($r_set = $db->query("SELECT jobStatus from job_details where jobNumber=$jobNumber")){
+    if($r_set = $db->query("SELECT jobStatus from job_details where jobNumber='$jobNumber'")){
     
     echo "<select name='jobStatus' id='jobStatus' required>";
     while ($row = $r_set->fetch_assoc()) {

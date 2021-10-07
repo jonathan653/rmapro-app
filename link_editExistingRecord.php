@@ -43,7 +43,7 @@ if($db->connect_error){
         // update variables into datbase using prepared statements
     $stmt = $db->prepare("update clients 
     set company=?,clientEmail=?,clientPhone=?
-    where clientId = $clientId"); 
+    where clientId = '$clientId'"); 
     $stmt->bind_param("ssi",$company,$clientEmail,$clientPhone);
     $stmt->execute();
     //echo $clientId, $company, $clientEmail, $clientPhone;
@@ -59,7 +59,7 @@ if($db->connect_error){
 //     $stmt->close();
 
      // update variables into database using prepared statements
-     $stmt = $db->prepare("update job_details set jobStatus=? where jobNumber=$jobNumber");
+     $stmt = $db->prepare("update job_details set jobStatus=? where jobNumber='$jobNumber'");
      $stmt->bind_param("s", $jobStatus);
      $stmt->execute();
      //echo $jobNumber, $jobStatus, $consultantName;
@@ -70,8 +70,8 @@ if($db->connect_error){
     
     // update variables into datbase using prepared statements
     // $stmt = $db->prepare("update consent set consentNumber=?, issueDate=?, lapseDate=?, keywords=?, address=?, clientId=?, jobNumber=? where consent.jobNumber = '".$jobNumber."'");
-    $stmt = $db->prepare("update consent set issueDate=?, lapseDate=?, keywords=?, address=? where consentNumber = $consentNumber");
-    $stmt->bind_param("ssss", $issueDate, $lapseDate, $keywords, $address);
+    $stmt = $db->prepare("update consent set issueDate=?, lapseDate=?, keywords=? where consentNumber='$consentNumber'");
+    $stmt->bind_param("sss", $issueDate, $lapseDate, $keywords);
     $stmt->execute();
     //echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
     //echo "consent details inserted successfully"."<br>";
