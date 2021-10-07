@@ -14,7 +14,7 @@ body {
 
 .header {
   width: 30%;
-  margin: 100px auto 0px;
+  margin: 5px auto 0px;
   color: white;
   background: grey;
   text-align: center;
@@ -212,4 +212,9 @@ h1 {
 
 table td {
   padding-right: 30px;
+}
+
+.img-container {
+  text-align: center;
+  margin-bottom: 5px;
 }

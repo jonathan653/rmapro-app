@@ -11,6 +11,9 @@ include('server.php')
 </head>
 
 <body>
+    <div class="img-container"> 
+    <img src="logotransparent.png" width="300" height="262"><br>
+    </div>  
     <div class="header">
         <h2>Title Recall</h2>
     </div>
