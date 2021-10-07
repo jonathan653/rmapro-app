@@ -83,11 +83,33 @@ WHERE consent.jobNumber = '".$jobNumber."'";
                     </div>
                     <!-- <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
-                    <select name="jobStatus" id="jobStatus">
-                        <option value=”active”>Active</option>
-                        <option value=”inactive”>Inactive</option>
+                    <select name="jobStatus" id="jobStatus" required>
+                        <option value=$jobStatus selected>$jobStatus</option>
+                         <option value="inactive">Inactive</option> 
                     </select>
                 </div> -->
+
+                <?Php
+    echo "<br>Job Status*";
+    require "db.php";// Database connection
+    
+    if($r_set = $db->query("SELECT jobStatus from job_details where jobNumber=$jobNumber")){
+    
+    echo "<select name='jobStatus' id='jobStatus' required>";
+    while ($row = $r_set->fetch_assoc()) {
+        if (!empty($row["jobStatus"]))
+            echo "<option value='" . $row["jobStatus"] . "'>" . $row["jobStatus"] . "</option>";
+            echo "<option value='active'>active</option>";
+            echo "<option value='inactive'>inactive</option>";
+    }
+
+    
+    echo "</select>";
+    }else{
+    echo $db->error;
+    }
+    ?>
+
                 <!-- <div class="record-input-group">
                     <label for="consultantName">Consultant*</label>
                     <select name="consultantName" id="consultantName" value="<?php /*echo $Result['consultantName']; */?>">

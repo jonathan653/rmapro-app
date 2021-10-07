@@ -23,10 +23,11 @@ $address  = $_POST['address'];
 
 // to store in job table
 $jobNumber = $_POST['jobNumber'];
-//$jobStatus = $_POST['jobStatus'];
+$jobStatus = $_POST['jobStatus'];
 //$consultantName = $_POST['consultantName'];
 //$consultantName = str_replace('”','',$_POST['consultantName']);
-//$jobStatus = str_replace('”','',$_POST['jobStatus']);
+$jobStatus = str_replace('”','',$_POST['jobStatus']);
+$jobStatus = str_replace('"','',$_POST['jobStatus']);
 
 // to store in consent table
 $consentNumber = $_POST['consentNumber'];
@@ -42,32 +43,35 @@ if($db->connect_error){
         // update variables into datbase using prepared statements
     $stmt = $db->prepare("update clients 
     set company=?,clientEmail=?,clientPhone=?
-    where clientId = ?"); 
-    $stmt->bind_param("sssi",$clientId,$company,$clientEmail,$clientPhone);
+    where clientId = $clientId"); 
+    $stmt->bind_param("ssi",$company,$clientEmail,$clientPhone);
     $stmt->execute();
     //echo $clientId, $company, $clientEmail, $clientPhone;
     //echo "client details inserted successfully"."<br>";
     $stmt->close();
         
-   // update variables into datbase using prepared statements
-    $stmt = $db->prepare("update property set address=?");
-    $stmt->bind_param("s",$address);
-    $stmt->execute();
-    //echo $address;
-    //echo "property details inserted successfully"."<br>";
-    $stmt->close();
+//    // update variables into datbase using prepared statements
+//     $stmt = $db->prepare("update property set address=? where consentNumber = $consentNumber");
+//     $stmt->bind_param("s",$address);
+//     $stmt->execute();
+//     //echo $address;
+//     //echo "property details inserted successfully"."<br>";
+//     $stmt->close();
 
-    // update variables into database using prepared statements
-    $stmt = $db->prepare("update job_details set jobNumber=?, jobStatus=?,consultantName=?");
-    $stmt->bind_param("sss", $jobNumber, $jobStatus,$consultantName);
-    $stmt->execute();
-    //echo $jobNumber, $jobStatus, $consultantName;
-    //echo "job details inserted successfully"."<br>";
-    $stmt->close();
+     // update variables into database using prepared statements
+     $stmt = $db->prepare("update job_details set jobStatus=? where jobNumber=$jobNumber");
+     $stmt->bind_param("s", $jobStatus);
+     $stmt->execute();
+     //echo $jobNumber, $jobStatus, $consultantName;
+     //echo "job details inserted successfully"."<br>";
+     $stmt->close();
+
+
     
     // update variables into datbase using prepared statements
-    $stmt = $db->prepare("update consent set consentNumber=?, issueDate=?, lapseDate=?, keywords=?, address=?, clientId=?, jobNumber=? where consent.jobNumber = '".$jobNumber."'");
-    $stmt->bind_param("sssssss",$consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber);
+    // $stmt = $db->prepare("update consent set consentNumber=?, issueDate=?, lapseDate=?, keywords=?, address=?, clientId=?, jobNumber=? where consent.jobNumber = '".$jobNumber."'");
+    $stmt = $db->prepare("update consent set issueDate=?, lapseDate=?, keywords=?, address=? where consentNumber = $consentNumber");
+    $stmt->bind_param("ssss", $issueDate, $lapseDate, $keywords, $address);
     $stmt->execute();
     //echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
     //echo "consent details inserted successfully"."<br>";
