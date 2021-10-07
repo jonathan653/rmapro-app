@@ -37,6 +37,8 @@ require('db.php'); ?>
 
 </form>
 
+<br> <br> <br> <br>
+
 <?php
 //radio button tables
 $answer = $_POST['report-type'];  
@@ -232,3 +234,5 @@ else {
 }  
 
 ?>
+
+<br> <br> <br> <br> <br> <br> <br> <br>
