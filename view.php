@@ -22,7 +22,7 @@ WHERE consent.jobNumber = '".$jobNumber."'";
     }
     ?>
 
-    <form action="" method="POST">
+    <form action="link_editExistingRecord.php" method="POST">
         <div class="wrapper">
             <div class="form-group">
                 <div class="input-section">
@@ -81,58 +81,103 @@ WHERE consent.jobNumber = '".$jobNumber."'";
                         <label for="jobNumber">Job Number*</label>
                         <input type="text" name="jobNumber" id="jobNumber" value="<?php echo $Result['jobNumber']; ?>">
                     </div>
-                    <!--<div class="record-input-group">
+                    <!-- <div class="record-input-group">
                     <label for="jobStatus">Job Status*</label>
-                    <select name="jobStatus" id="jobStatus">
-                        <option value=”active”>Active</option>
-                        <option value=”inactive”>Inactive</option>
+                    <select name="jobStatus" id="jobStatus" required>
+                        <option value=$jobStatus selected>$jobStatus</option>
+                         <option value="inactive">Inactive</option> 
                     </select>
-                </div>
-                <div class="record-input-group">
+                </div> -->
+
+                <?Php
+    echo "<br>Job Status*";
+    require "db.php";// Database connection
+    
+    if($r_set = $db->query("SELECT jobStatus from job_details where jobNumber=$jobNumber")){
+    
+    echo "<select name='jobStatus' id='jobStatus' required>";
+    while ($row = $r_set->fetch_assoc()) {
+        if (!empty($row["jobStatus"]))
+            echo "<option value='" . $row["jobStatus"] . "'>" . $row["jobStatus"] . "</option>";
+            echo "<option value='active'>active</option>";
+            echo "<option value='inactive'>inactive</option>";
+    }
+
+    
+    echo "</select>";
+    }else{
+    echo $db->error;
+    }
+    ?>
+
+                <!-- <div class="record-input-group">
                     <label for="consultantName">Consultant*</label>
                     <select name="consultantName" id="consultantName" value="<?php /*echo $Result['consultantName']; */?>">
                         <option value=”conrad-anderson”>Conrad Anderson</option>
                         <option value=”don-anderson”>Don Anderson</option>
                     </select>
-                </div>-->
+                </div> -->
+<!-- 
+                 <?Php
+                                echo "<br>Consultant*";
+                require "db.php";// Database connection
+                
+                if($r_set = $db->query("SELECT consultantName from users")){
+                
+                echo "<select name='consultantName' id='consultantName' required>";
+                while ($row = $r_set->fetch_assoc()) {
+                    if (!empty($row["consultantName"]))
+                        echo "<option value='" . $row["consultantName"] . "'>" . $row["consultantName"] . "</option>";
+                }
+                
+                echo "</select>";
+                }else{
+                echo $db->error;
+                }
+                ?>
+                <br> <br>  -->
 
-                    <!-- <button class="add_more_button">Add New Condition</button>
+                <!-- <button class="add_more_button">Add New Condition</button>
 
-                     <div class="add-new-condition"></div>
-                     <script>
-                         $(document).ready(function () {
-                             $('.add_more_button').click(function (e) {
-                                 e.preventDefault();
-                                 $('.add-new-condition').append('<fieldset class="new-input-part">' +
-                                     '<legend>Consent Condition</legend>' +
-                                     '<a href="#" class="remove-field">Remove</a><br>' +
+                <div class="add-new-condition"></div>
+                <script>
+                    $(document).ready(function () {
+                        var arrayC = 0
+                        
+                        $('.add_more_button').click(function (e) {
+                            e.preventDefault();
+                            arrayC++;
+                            $('.add-new-condition').append('<fieldset class="new-input-part">' +
+                                '<legend>Consent Condition</legend>' +
+                                '<a href="#" class="remove-field">Remove</a><br>' +
 
-                                     '<label for="conditionNumber">Condition Number*</label><br>' +
-                                     '<input type="text" name="conditionNumber" id="conditionNumber" required><br>' +
+                                '<label for="conditionNumber">Condition Number*</label><br>' +
+                                '<input type="text" name="conditionNumber' + arrayC + '" id="conditionNumber" maxlength="4" required><br>' +
+                                
+                                '<label for="details">Condition Summary / Details</label><br>' +
+                                '<input type="text" name="details' + arrayC + '" id="details" required><br>' +
+                                
+                                '<label for="conditionDate">Condition date*</label><br>' +
+                                '<input type="date" name="conditionDate' + arrayC + '" id="conditionDate" required><br>' +
+                                
+                                '<label for="reminderDate">Reminder date*</label>' +
+                                '<input type="date" name="reminderDate' + arrayC + '" id="reminderDate" required><br>' +
+                                
+                            '<label for="conditionStatus">Condition status*</label><br>' +
+                            '<select name="conditionStatus' + arrayC + '" id="conditionStatus" required><option value="active" selected>Active</option>' +
+                            '<option value="inactive">Inactive</option></select>' +
+                                
+                                '</fieldset>');
 
-                                     '<label for="details">Condition Summary / Details</label><br>' +
-                                     '<input type="text" name="details" id="details" required><br>' +
-
-                                     '<label for="conditionDate">Condition date*</label><br>' +
-                                     '<input type="date" name="conditionDate" id="conditionDate" required><br>' +
-
-                                     '<label for="reminderDate">Reminder date*</label>' +
-                                     '<input type="date" name="reminderDate" id="reminderDate" required><br>' +
-
-                                     '<label for="conditionStatus">Condition status*</label><br>' +
-                                     '<select name= conditionStatus id= conditionStatus><option value=”active”>Active</option>' +
-                                     '<option value=”inactive”>Inactive</option>/select>' +
-
-                                     '</fieldset>');
-
-                                 $('.new-input-part').on("click", ".remove-field", function (e) {
-                                     e.preventDefault();
-                                     $(this).parent('fieldset').remove();
+                            $('.new-input-part').on("click", ".remove-field", function (e) {
+                                e.preventDefault();
+                                arrayC--;
+                                $(this).parent('fieldset').remove();
                                  });
                              });
                          });
                      </script>
-                 </div>-->
+                 </div> -->
                 </div>
             </div>
             <div class="submit-btn">
