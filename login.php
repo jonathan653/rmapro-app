@@ -9,7 +9,7 @@ include('server.php')
 <link rel="icon" 
       type="image/ico" 
       href="favicon.ico">    
-    <title>Anderson app</title>
+    <title>Title Recall</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
