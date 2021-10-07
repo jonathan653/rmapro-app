@@ -22,7 +22,7 @@ WHERE consent.jobNumber = '".$jobNumber."'";
     }
     ?>
 
-    <form action="" method="POST">
+    <form action="link_editExistingRecord.php" method="POST">
         <div class="wrapper">
             <div class="form-group">
                 <div class="input-section">
