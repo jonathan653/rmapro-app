@@ -19,10 +19,6 @@ require('db.php');
                     <input type="text" name="address" id="address" required>
                 </div>
                 <div class="record-input-group">
-                    <label for="consentDoc">Attach Consent Issue Document</label>
-                    <input type="file" id="consentDoc" name="consentDoc">
-                </div>
-                <div class="record-input-group">
                     <label for="issueDate">Issue Date*</label>
                     <input type="date" id="issueDate" name="issueDate" required>
                 </div>
@@ -73,14 +69,33 @@ require('db.php');
                         <option value="inactive">Inactive</option>
                     </select>
                 </div>
+
+                <?Php
+                echo "<br>Consultant*";
+                require "db.php";// Database connection
                 
-                <div class="record-input-group">
+                if($r_set = $db->query("SELECT consultantName from users")){
+                
+                echo "<select name='consultantName' id='consultantName'>";
+                while ($row = $r_set->fetch_assoc()) {
+
+                echo "<option value='" . $row["id"] . "'>" . $row["consultantName"] . "</option>";
+                }
+                
+                echo "</select>";
+                }else{
+                echo $db->error;
+                }
+                ?>
+                <br> <br>
+                
+                <!-- <div class="record-input-group">
                    <label for="consultantName">Consultant*</label>
                     <select name="consultantName" id="consultantName" required>
                         <option value="conrad-anderson">Conrad Anderson</option>
                         <option value="don-anderson">Don Anderson</option>
                     </select>
-                </div>             
+                </div>              -->
               
                 <button class="add_more_button">Add New Condition</button>
 

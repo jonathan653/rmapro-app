@@ -25,14 +25,13 @@ $address  = $_POST['address'];
 $jobNumber = $_POST['jobNumber'];
 $jobStatus = $_POST['jobStatus'];
 $consultantName = $_POST['consultantName'];
-$conditionStatus = str_replace('”','',$_POST['consultantName']);
-$conditionStatus = str_replace('”','',$_POST['jobStatus']);
+$consultantName = str_replace('”','',$_POST['consultantName']);
+$jobStatus = str_replace('”','',$_POST['jobStatus']);
 
 // to store in consent table
 $consentNumber = $_POST['consentNumber'];
 $issueDate = $_POST['issueDate'];
 $lapseDate = $_POST['lapseDate'];
-$consentDoc = $_POST['consentDoc'];
 $keywords = $_POST['keywords'];
 
 
@@ -68,12 +67,12 @@ if($db->connect_error){
     $stmt->close();
     
     // insert variables into datbase using prepared statements
-    $stmt = $db->prepare("insert into consent(consentNumber,issueDate,lapseDate,consentDoc,keywords,address,clientId,jobNumber)
-        values(?,?,?,?,?,?,?,?)"); 
-    $stmt->bind_param("ssssssss",$consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber);
+    $stmt = $db->prepare("insert into consent(consentNumber,issueDate,lapseDate,keywords,address,clientId,jobNumber)
+        values(?,?,?,?,?,?,?)"); 
+    $stmt->bind_param("sssssss",$consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber);
     $stmt->execute();
-    //echo $consentNumber,$issueDate,$lapseDate,$consentDoc,$keywords,$address,$clientId,$jobNumber;
-    //echo "consent details inserted successfully"."<br>";
+    echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
+    echo "consent details inserted successfully"."<br>";
     $stmt->close();
 
 $i = 1;
@@ -124,6 +123,10 @@ h2 {text-align: center;}
 <h2>Record entered successfully</h2>';
 
 }
+
+print_r($_POST);
+
+
 $db->close();
 
 
