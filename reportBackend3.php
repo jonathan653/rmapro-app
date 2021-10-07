@@ -9,6 +9,8 @@ require_once 'dompdf_1-0-2(1)/dompdf/autoload.inc.php';
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
 
+    ob_start();
+
 // /* Attempt MySQL server connection. Assuming you are running MySQL
 // server with default setting (user 'root' with no password) */
 //$link = mysqli_connect("localhost", "root", "", "AnC_Sep22");
@@ -159,6 +161,9 @@ $dompdf->loadHtml($str);
 
     // Render the HTML as PDF
     $dompdf->render();
+
+    ob_end_clean();
+
     // Output the generated PDF to Browser $dompdf->stream();
-    $dompdf->stream("WeeklyReport");
+    $dompdf->stream("WeeklyReport". ".pdf");
 ?>
