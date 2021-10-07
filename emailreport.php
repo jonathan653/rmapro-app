@@ -38,17 +38,17 @@ $host = 'email-smtp.ap-southeast-2.amazonaws.com';
 $port = 587;
 
 // The subject line of the email
-$subject = 'Weekly Report - '.date("l d-m-y");
+$subject = 'Title Recall Weekly Report';
 
 // The plain-text body of the email
-$bodyText =  "Weekly Report.\r\nPlease see attached PDF for your weekly report.";
+$bodyText =  "Weekly Report.\r\nPlease go to http://3.105.98.133/rmapro-app/reportBackend3.php for your report.";
 
 // The HTML-formatted body of the email
 $bodyHtml = '<h1>Weekly Report</h1>
-    <p>Please see attached for PDF for your weekly report.</p>';
+    <p>Please click <a href="http://3.105.98.133/rmapro-app/reportBackend3.php">this link</a> for your weekly report.</p>';
 
-//Add attachments
-$mail->addAttachment('Attachment.pdf');         
+// //Add attachments
+// $mail->addAttachment('Attachment.pdf');         
 
 try {
     // Specify the SMTP settings.

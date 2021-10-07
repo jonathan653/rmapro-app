@@ -20,6 +20,7 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Svg\\' => 4,
         ),
         'P' => 
         array (
@@ -37,6 +38,14 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
+        ),
+        'D' => 
+        array (
+            'Dompdf\\' => 7,
+        ),
         'A' => 
         array (
             'Aws\\' => 4,
@@ -47,6 +56,10 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Svg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -76,9 +89,27 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
         ),
     );
 
@@ -107,6 +138,12 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
         'AWS\\CRT\\OptionValue' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
         'AWS\\CRT\\Options' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -114,6 +151,7 @@ class ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit77e2f32c1b9f8193641168adeb08ba86::$classMap;
 
         }, null, ClassLoader::class);
