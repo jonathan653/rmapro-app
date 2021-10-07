@@ -47,8 +47,8 @@ $bodyText =  "Weekly Report.\r\nPlease go to http://3.105.98.133/rmapro-app/repo
 $bodyHtml = '<h1>Weekly Report</h1>
     <p>Please click <a href="http://3.105.98.133/rmapro-app/reportBackend3.php">this link</a> for your weekly report.</p>';
 
-//Add attachments
-$mail->addAttachment('Attachment.pdf');         
+// //Add attachments
+// $mail->addAttachment('Attachment.pdf');         
 
 try {
     // Specify the SMTP settings.
