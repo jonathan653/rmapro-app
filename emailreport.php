@@ -38,7 +38,7 @@ $host = 'email-smtp.ap-southeast-2.amazonaws.com';
 $port = 587;
 
 // The subject line of the email
-$subject = 'Weekly Report - '.date("l d-m-y");
+$subject = 'Title Recall Weekly Report';
 
 // The plain-text body of the email
 $bodyText =  "Weekly Report.\r\nPlease go to http://3.105.98.133/rmapro-app/reportBackend3.php for your report.";
