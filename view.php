@@ -181,7 +181,7 @@ WHERE consent.jobNumber = '".$jobNumber."'";
                 </div>
             </div>
             <div class="submit-btn">
-                <button class="centre-btn" type="submit">Update Record</button>
+                <button class="update-centre-btn" type="submit">Update&nbsp;Record</button>
             </div>
     </form>
 <?php }
