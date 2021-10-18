@@ -2,59 +2,53 @@
 <h2>University of Otago</h2>
 <h3>Title Recall: A web-based business tool</h3>
 <h4>The goal of this project is to create a system to provide reminders to the client for resource consent applications.</h4>
-For client - Conrad Anderson of Anderson & Co, Dunedin
+Client: Conrad Anderson of Anderson & Co, Dunedin.
 
-By Esther, Jonathan, Monique, and Sam.
+By Esther Ardley, Jonathan Chua, Monique Arron, and Sam Heenan.
 <br><br>
 
-<!-- <h2> To Access The PHPMyAdmin Backend:</h2>
-These instructions will work for our current version. If you want to implement your own version, follows the additional steps further down.
-<li> Download the AWS Lightsail SSH key (LightsailDefaultKey-ap-southeast-2.pem) from the repo to somewhere on your local computer (as you may not be able to access it if you are not running the XAMPP VM).</li>
-<ul>
-<li>Make a note of where you save it as you will need this path later.</li></ul>
-<li>In terminal (macOS & Linux) or PuTTY (Windows) connect to our Lightsail instance with a secure tunnel by using the following command:
-ssh -N -L 8888:127.0.0.1:80 -i /Users/sama/Downloads/LightsailDefaultKey-ap-southeast-2.pem bitnami@54.252.79.56</li>
-<ul>
-<li> Replace the filepath above with wherever you have saved the SSH key on your local computer but keep the rest exactly the same. This will create a secure tunnel between your computer and the Lightsail instance on the AWS cloud.</li></ul>
-<li> Now, from your browser, go to http://127.0.0.1:8888/phpmyadmin and, all going to plan, you should be greeted with a welcome screen for PHPMyAdmin.
-<ul>
-<li> Note that in many cases 127.0.0.1 and localhost mean the same thing but, in this case, the system is very particular and will only allow 127.0.0.1</li>
-<li> The username is <b>root</b> and the password is <b>iutnWn1VQ8pU</b>.</li></ul>
-<li> Once in, you will find the layout very familiar and can manipulate the database as you please.  
-</ul>  
-<br> -->
+<h1>Handover Information</h1> 
+<h2>How to Automate the Email Report Using Cron</h2>  
 
-<!-- <b>Notes:</b> 
-To link to the database on the AWS side, db.php needs to be modified as follows (minus the first and last speech marks):
-> "<?php
-> $con = MySQLi_connect(
-> "127.0.0.1",
-> "root",
-> "iutnWn1VQ8pU",
-> "AnC_Sep22"
-> );
-> if (MySQLi_connect_errno()) {
-> echo "Failed to connect to MySQL: " . MySQLi_connect_error();
-> }"   -->
+1. In Terminal, ensure that you are in the project directory. On LightSail, this is /htdocs/rmapro-app.
 
-<!-- Likewise, server.php needs to modify the account credentials line as follows:  
-> // connect to the database
-> $db = mysqli_connect("localhost", "root", "", "AnC_Sep22");  
+2. Type in `crontab -e` and press enter.
 
-If we could reconcile our local machines to use these same credentials then I see no reason why these changes couldn't be integrated into the repo and then be pulled through with each update to the cloud instance. -->
+3. Add the following to the end of the file:
 
-<!-- <h2>Security:</h2>  
-<li>Now that this is on the web, anyone with the address can see or access our website. This is great for convenience but perhaps not the best from a security standpoint. We can lock it down more once we have all successfully been able to log in to the back end. </li>
-<li>Because the AWS instance is linked to my credit card (even at the free tier), if it is okay with the team, I would prefer to keep this under my control. However, I have no intention of keeping the process of creating one of these instances a secret as we will need to do this for final deployment! So...</li>  <br> -->
+    `PATH=/usr/bin:/bin:/opt/bitnami/php/bin:`
 
-<!-- <h2>To Create A Lightsail Instance </h2>
-<li>Follow these instructions (https://lightsail.aws.amazon.com/ls/docs/en_us/articles/how-to-create-amazon-lightsail-instance-virtual-private-server-vps) to create your Lightsail instance</li>
-<ul>
-<li>I just went with the defaults offered. It will ask you for a credit card even on the free tier.</li></ul>
-<li>Due to security restrictions, you are no longer able to use a username and password so to link your GitHub repo with AWS you will need to create a token using this guide (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)</li>
-<li>Clone the repository to the Lightsail instance from the terminal using git clone https://github.com/YOURREPONAME/rmapro-app.git (replacing your repo name as appropriate).</li>
-<ul>
-<li>I just used the token as both my username and password in this section and it worked for me.</li>
-<li>You may need to update db.php and server.php with your credentials as per the PHPMyAdmin section.</li>
-<li>That should be it!</li><br> -->
+    `0 19 * * SUN php -f /home/bitnami/htdocs/rmapro-app/emailreport.php > /home/bitnami/Out.put`
 
+    This will run emailreport.php every Sunday night at 19:00 UTC. Depending on daylight savings, this means that the report email will arrive at 07:00 NZST or 08:00 NZDT each Monday.
+
+4. Ensure that emailreport.php is executable by entering the following:
+
+    `sudo chmod u+x emailreport.php`
+
+5. That should be it! If you are having any issues, you can change "0 19 * * SUN" to "* * * * *" which will try to run emailreport.php every minute. This is very handy for troubleshooting purposes but make sure to stop it as soon as you have sorted out the problem because the AWS email API might think that you are trying to spam.
+
+<h2>Gmail Forwarding</h2>
+
+Because AWS have denied us access to email anyone but our own address, the solution to this is to set up a forwarding rule in Gmail. 
+
+* To set this up, we need Conrad to give us the verification code. This can happen while on the Zoom with him this week.
+
+* Once it is set up, we can set up a forwarding rule so that emails from comp373project@gmail.com to that same address with the subject line "Title Recall Weekly Report" are forwarded to his email address.
+
+<h2>Transfer the AWS Account to Conrad</h2>
+
+There has been a job ticket submitted for this. Hopefully they come through with the goods.
+
+<h2>Pull Repo & Drop Tables</h2>
+
+In preparation for the handover, we will need to pull the most recent version of the repo, drop all the tables and then re-create them so he has a clean instance to work with.
+
+<h3>Handy Things to Know</h3>
+
+* Site address is http://3.105.98.133/rmapro-app/
+    * Access to the terminal is through the web interface when signed in to AWS.
+* Password to Bitnami / PhpMyAdmin is **LeCFi3Jaavgt**
+    *  To access the remote instance of PhpMyAdmin, follow the instructions at https://docs.bitnami.com/aws/infrastructure/lamp/get-started/access-phpmyadmin/
+* AWS SMTP Username: **AKIAXB3L3RVTCXOBPO5E**
+* AWS SMTP Password: **BFH7dMJyyM5qBB3XZJJT6YEi4PyR7SHURCknaHVRNPZV**
