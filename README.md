@@ -43,3 +43,7 @@ There has been a job ticket submitted for this. Hopefully they come through with
 <h2>Pull Repo & Drop Tables</h2>
 
 In preparation for the handover, we will need to pull the most recent version of the repo, drop all the tables and then re-create them so he has a clean instance to work with.
+<h3>Handy Things to Know</h3>
+
+* Site address is http://3.105.98.133/rmapro-app/
+    * Access to the terminal is through the web interface when signed in to AWS.
