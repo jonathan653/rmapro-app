@@ -48,6 +48,7 @@ if($db->connect_error){
     //echo "client details inserted successfully"."<br>";
     $stmt->close();
         
+    /*
    // insert variables into datbase using prepared statements
     $stmt = $db->prepare("insert into property(address)
     values(?)"); 
@@ -55,7 +56,7 @@ if($db->connect_error){
     $stmt->execute();
     //echo $address;
     //echo "property details inserted successfully"."<br>";
-    $stmt->close();
+    $stmt->close();*/
 
     // insert variables into database using prepared statements
     $stmt = $db->prepare("insert into job_details(jobNumber, jobStatus,consultantName)
