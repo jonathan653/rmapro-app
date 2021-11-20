@@ -19,13 +19,14 @@ $clientEmail = $_POST['clientEmail'];
 $clientPhone = $_POST['clientPhone'];
 
 // to store in property table
+$oldaddress  = $_POST['oldaddress'];
 $address  = $_POST['address'];
 
 // to store in job table
 $jobNumber = $_POST['jobNumber'];
 $jobStatus = $_POST['jobStatus'];
-//$consultantName = $_POST['consultantName'];
-//$consultantName = str_replace('”','',$_POST['consultantName']);
+$consultantName = $_POST['consultantName'];
+$consultantName = str_replace('”','',$_POST['consultantName']);
 $jobStatus = str_replace('”','',$_POST['jobStatus']);
 $jobStatus = str_replace('"','',$_POST['jobStatus']);
 
@@ -35,6 +36,14 @@ $issueDate = $_POST['issueDate'];
 $lapseDate = $_POST['lapseDate'];
 $keywords = $_POST['keywords'];
 
+/*
+ // to store in condition table
+ $conditionNumber = $_POST['conditionNumber' . $i];
+ $details  = $_POST['details'. $i];
+ $conditionDate = $_POST['conditionDate'.$i];
+$reminderDate = $_POST['reminderDate'.$i];
+$conditionStatus = str_replace('”','',$_POST['conditionStatus'.$i]);
+*/
 
 //check connection
 if($db->connect_error){
@@ -51,12 +60,12 @@ if($db->connect_error){
     $stmt->close();
         
 //    // update variables into datbase using prepared statements
-//     $stmt = $db->prepare("update property set address=? where consentNumber = $consentNumber");
-//     $stmt->bind_param("s",$address);
-//     $stmt->execute();
-//     //echo $address;
+  /*   $stmt = $db->prepare("update consent set address=? where consentNumber = ?");
+    $stmt->bind_param("ss",$consentNumber,$address);
+    $stmt->execute();
+     //echo $address;
 //     //echo "property details inserted successfully"."<br>";
-//     $stmt->close();
+     $stmt->close();*/
 
      // update variables into database using prepared statements
      $stmt = $db->prepare("update job_details set jobStatus=? where jobNumber='$jobNumber'");
@@ -70,34 +79,48 @@ if($db->connect_error){
     
     // update variables into datbase using prepared statements
     // $stmt = $db->prepare("update consent set consentNumber=?, issueDate=?, lapseDate=?, keywords=?, address=?, clientId=?, jobNumber=? where consent.jobNumber = '".$jobNumber."'");
-    $stmt = $db->prepare("update consent set issueDate=?, lapseDate=?, keywords=? where consentNumber='$consentNumber'");
-    $stmt->bind_param("sss", $issueDate, $lapseDate, $keywords);
+    $stmt = $db->prepare("update consent set issueDate=?, lapseDate=?, keywords=?, address=? where consentNumber='$consentNumber'");
+    $stmt->bind_param("ssss", $issueDate, $lapseDate, $keywords,$address);
     $stmt->execute();
     //echo $consentNumber,$issueDate,$lapseDate,$keywords,$address,$clientId,$jobNumber;
     //echo "consent details inserted successfully"."<br>";
     $stmt->close();
 
-// $i = 1;
-// while (isset($_POST['conditionNumber' . $i])) {
-// // to store in condition table
-//     $conditionNumber = $_POST['conditionNumber' . $i];
-//     $details  = $_POST['details'. $i];
-//     $conditionDate = $_POST['conditionDate'.$i];
-//     $reminderDate = $_POST['reminderDate'.$i];
-//    $conditionStatus = str_replace('”','',$_POST['conditionStatus'.$i]);
-
-
+ $i =0;
+ while (isset($_POST['conditionNumber' . $i])) {
+ // to store in condition table
+ $OldconditionNumber = $_POST['OldconditionNumber' . $i];
+     $conditionNumber = $_POST['conditionNumber' . $i];
+     $details  = $_POST['details'. $i];
+     $conditionDate = $_POST['conditionDate'.$i];
+   $reminderDate = $_POST['reminderDate'.$i];
+    $conditionStatus = str_replace('”','',$_POST['conditionStatus'.$i]);
+  //  echo $conditionNumber, $details, $conditionDate, $reminderDate, $conditionStatus,$consentNumber;
+    
 //    // insert variables into datbase using prepared statements
-//   $stmt = $db->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
-//   values(?,?,?,?,?,?)"); 
-//     $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
-//     $stmt->execute();
+   $stmt = $db->prepare("update conditions 
+   set details=?, conditionDate=?, reminderDate=?, conditionStatus=?, conditionNumber=?
+   where consentNumber=? and conditionNumber=?"); 
+    $stmt->bind_param("sssssss",$details,$conditionDate,$reminderDate,$conditionStatus,$conditionNumber,$consentNumber,$OldconditionNumber);
+    $stmt->execute();
 //     //echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber;
 //     //echo "condition details inserted successfully"."<br>";
-//     $stmt->close();
+   // echo "<br />ERROR: " . $stmt->error . "----<br />";
+     $stmt->close();
 
-// $i++;
-// }
+
+        // insert variables into datbase using prepared statements
+  $stmt = $db->prepare("insert into conditions(conditionNumber,details,conditionDate,reminderDate,conditionStatus,consentNumber)
+  values(?,?,?,?,?,?)"); 
+    $stmt->bind_param("ssssss",$conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber);
+    $stmt->execute();
+    //echo $conditionNumber,$details,$conditionDate,$reminderDate,$conditionStatus,$consentNumber;
+    //echo "condition details inserted successfully"."<br>";
+    $stmt->close();
+    
+
+ $i++;
+ }
 /*
 
 //echo out/test values being submitted
