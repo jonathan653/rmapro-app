@@ -129,7 +129,6 @@ ALTER TABLE `conditions`
 --
 ALTER TABLE `consent`
   ADD PRIMARY KEY (`consentNumber`),
-  ADD KEY `address` (`address`),
   ADD KEY `clientId` (`clientId`,`jobNumber`),
   ADD KEY `jobNumber` (`jobNumber`);
 
@@ -177,7 +176,6 @@ ALTER TABLE `conditions`
 -- Constraints for table `consent`
 --
 ALTER TABLE `consent`
-  ADD CONSTRAINT `FKaddress` FOREIGN KEY (`address`) REFERENCES `property` (`address`),
   ADD CONSTRAINT `FKclientId` FOREIGN KEY (`clientId`) REFERENCES `clients` (`clientId`),
   ADD CONSTRAINT `FKjobNumber` FOREIGN KEY (`jobNumber`) REFERENCES `job_details` (`jobNumber`);
 
